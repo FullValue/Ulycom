@@ -1,0 +1,755 @@
+[
+  {
+    "slug": "yoovi",
+    "name": "Yoovi",
+    "category": "IA",
+    "format": "Plateforme EdTech IA",
+    "tags": [
+      {
+        "label": "Web & mobile",
+        "icon": "window"
+      },
+      {
+        "label": "IA",
+        "icon": "ai"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "period": "depuis 2023",
+    "url": "https://yoovi.fr",
+    "logo": "/assets/img/projects/yoovi/logo.svg",
+    "cover": "/assets/img/projects/yoovi/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/yoovi/cover.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/projects/yoovi/mobile.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/yoovi/screen-1.webp",
+      "/assets/img/projects/yoovi/screen-2.webp",
+      "/assets/img/projects/yoovi/screen-3.webp",
+      "/assets/img/projects/yoovi/screen-4.webp",
+      "/assets/img/projects/yoovi/screen-5.webp"
+    ],
+    "description": "Yoovi est une plateforme éducative propulsée par l’IA pour les collégiens et lycéens, de la 6e à la Terminale : un compagnon d’apprentissage disponible 24h/24, déployé dans des établissements en France.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Rendre un soutien scolaire de qualité accessible à tous les élèves, avec un compagnon pensé pour faire progresser et non pour donner les réponses. Le projet est mené en collaboration avec l’Éducation nationale.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un assistant de tutorat organisé en salles virtuelles par matière, accessible gratuitement, avec des fonctionnalités avancées sur abonnement.</p><ul role=\"list\"><li>Discussion avec l’IA, fiches de révision, quiz, flashcards et exercices par matière et par chapitre</li><li>Entrées multimodales : texte, audio, images et PDF</li><li>Partage d’écran en direct et appels vocaux avec l’IA</li><li>Espace de suivi pour les parents et module d’orientation</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "CTO & développement IA."
+      }
+    ]
+  },
+  {
+    "slug": "leadem",
+    "name": "Lead’Em",
+    "category": "IA",
+    "format": "Prospection téléphonique IA",
+    "tags": [
+      {
+        "label": "Web app",
+        "icon": "window"
+      },
+      {
+        "label": "IA",
+        "icon": "ai"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "period": "fin 2024 – début 2025",
+    "url": "",
+    "cover": "/assets/img/projects/leadem/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/leadem/screen-1.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/leadem/screen-2.webp",
+      "/assets/img/projects/leadem/screen-3.webp"
+    ],
+    "description": "Lead’Em est un système de prospection téléphonique piloté par l’IA : il qualifie les prospects, traite les objections et planifie les rendez-vous commerciaux.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Des opérations d’appels sortants à fort volume, où la rapidité de réponse et la régularité du discours font la différence, et où la prospection manuelle mobilise trop de temps.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un agent vocal capable de mener un appel de bout en bout et de passer la main à un commercial quand il le faut.</p><ul role=\"list\"><li>Qualification des prospects et gestion des objections</li><li>Prise de rendez-vous avec création de l’événement dans Google Calendar</li><li>Transfert de l’appel vers un closer humain</li><li>Campagnes, suivi des appels et statistiques</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Développement IA."
+      }
+    ]
+  },
+  {
+    "slug": "gallery",
+    "name": "gallery.",
+    "category": "IA",
+    "format": "Boutique augmentée par l’IA",
+    "tags": [
+      {
+        "label": "Web app",
+        "icon": "window"
+      },
+      {
+        "label": "IA",
+        "icon": "ai"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://gallery-ai.fr",
+    "cover": "/assets/img/captures/gallery-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/gallery-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/gallery-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "gallery. équipe les parfumeries de niche : le client répond à un court questionnaire et l’IA écrit son profil olfactif pour guider le vendeur.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Les parfumeries de niche perdent la mémoire de leurs clients : le vendeur ne sait pas toujours quoi proposer.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une « boutique augmentée » pour les parfumeries indépendantes.</p><ul role=\"list\"><li>Le client scanne et répond en trois minutes</li><li>L’IA génère son profil olfactif</li><li>Le vendeur sait quoi proposer, la boutique garde la mémoire</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "maison-maya",
+    "name": "Maison Maya",
+    "category": "Shopify",
+    "format": "Boutique Shopify",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://maisonmayaparis.fr/",
+    "cover": "/assets/img/captures/maya-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/maya-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/maya-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Maison Maya est une maison de parfums : une boutique Shopify qui met en scène sa collection autour de « la passion des senteurs ».",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une maison de parfums qui voulait vendre en ligne tout en gardant l’atmosphère de ses flacons et de ses notes.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une boutique pensée comme une vitrine de la maison.</p><ul role=\"list\"><li>Page d’accueil immersive autour de la collection</li><li>Fiches parfums avec description des notes</li><li>Boutique multilingue, panier et tunnel de commande Shopify</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "maison-isis",
+    "name": "Maison Isis",
+    "category": "Shopify",
+    "format": "Boutique Shopify",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://maisonisisparfum.fr/",
+    "cover": "/assets/img/captures/isis-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/isis-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/isis-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Maison Isis propose onze extraits de parfum, présentés dans une boutique Shopify à l’univers sombre et soigné.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une jeune maison d’extraits de parfum née d’une histoire d’amitié, qui avait besoin d’un site à la hauteur de son univers.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une boutique éditoriale, de la marque jusqu’à l’achat.</p><ul role=\"list\"><li>Page d’accueil narrative : mission, histoire et collection</li><li>Carrousel des onze parfums, avec fiche détaillée</li><li>Boutique et paiement sous Shopify</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "awa-plaisir",
+    "name": "Awa Plaisir",
+    "category": "Shopify",
+    "format": "Refonte boutique Shopify",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "period": "refonte",
+    "url": "https://awaplaisir.fr/",
+    "cover": "/assets/img/captures/awa-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/awa-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/awa-m.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/awa-plaisir/screen-1.webp"
+    ],
+    "video": {
+      "src": "/assets/img/projects/awa-plaisir/demo-3d.mp4",
+      "poster": "/assets/img/projects/awa-plaisir/demo-3d-poster.webp",
+      "label": "Démonstration : un meuble placé chez soi en réalité augmentée"
+    },
+    "description": "Refonte de la boutique en ligne Awa Plaisir, spécialiste du mobilier : catalogue par catégories, recherche et présentation soignée des produits, avec rendu 3D et réalité augmentée.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Vendre du mobilier en ligne suppose de rassurer sur le rendu réel des produits, puis d’assurer la livraison sans dépendre d’un prestataire.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une boutique animée, complétée par toute la chaîne de livraison.</p><ul role=\"list\"><li>Rendu 3D des produits et réalité augmentée pour placer un meuble chez soi à taille réelle</li><li>Animations d’interface avancées</li><li>Application dédiée aux livreurs : répartition des commandes et suivi des positions en direct</li><li>Lien de suivi envoyé au client par message</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Développement."
+      }
+    ]
+  },
+  {
+    "slug": "mickael-lima",
+    "name": "Mickaël Lima",
+    "category": "Site vitrine",
+    "format": "Site d’agent immobilier",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Site vitrine",
+        "icon": "globe"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://mickael-lima.immo/",
+    "cover": "/assets/img/captures/lima-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/lima-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/lima-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Site vitrine d’un expert immobilier indépendant du Pays de Gex : estimation offerte, biens à vendre, services et guides.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Un conseiller indépendant qui voulait un site clair pour obtenir des demandes d’estimation et présenter ses biens.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un site conçu pour déclencher le contact.</p><ul role=\"list\"><li>Parcours d’entrée en deux choix : faire estimer ou rechercher un bien</li><li>Pages services, biens, à propos, partenaires et guides</li><li>Contact direct par WhatsApp et avis Google mis en avant</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "nefsy",
+    "name": "Nefsy",
+    "category": "Application",
+    "format": "Application pèlerins & guides",
+    "tags": [
+      {
+        "label": "iOS & Android",
+        "icon": "app"
+      },
+      {
+        "label": "Application",
+        "icon": "window"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "period": "fin 2025 – début 2026",
+    "url": "https://www.nefsy.fr/",
+    "cover": "/assets/img/projects/nefsy/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/nefsy/cover.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/captures/nefsy-d.webp",
+      "/assets/img/projects/nefsy/screen-1.webp"
+    ],
+    "description": "Nefsy met en relation les pèlerins avec des guides locaux de confiance à La Mecque et à Médine, pour des visites guidées et un accompagnement pendant la Omra.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Trouver un guide fiable, réserver et échanger avec lui reste compliqué pour les pèlerins qui cherchent un accompagnement structuré pendant leur voyage.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une application de mise en relation qui simplifie la recherche de guide, la réservation et la communication.</p><ul role=\"list\"><li>Recherche et réservation de guides</li><li>Coordination et messagerie entre pèlerins et guides</li><li>Back-office complet pour administrer l’application</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Développement."
+      }
+    ]
+  },
+  {
+    "slug": "partenaires-multiservices",
+    "name": "Les Partenaires DM",
+    "category": "Application",
+    "format": "Application de suivi",
+    "tags": [
+      {
+        "label": "iOS & Android",
+        "icon": "app"
+      },
+      {
+        "label": "Application",
+        "icon": "window"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "url": "https://www.partenairesmultiservices.fr/",
+    "cover": "/assets/img/captures/pdm-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/pdm-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/pdm-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Les Partenaires DM est une application de suivi des prestations de nettoyage : photos avant/après, checklists et rapports PDF.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Suivre l’entretien de locaux demande de la preuve et de la transparence pour le client comme pour les équipes.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une application et son site de présentation.</p><ul role=\"list\"><li>Photos avant/après, checklists et planning des passages</li><li>Rapports PDF et espace client</li><li>Téléchargement sur l’App Store et Google Play</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "cockpit",
+    "name": "Le Cockpit",
+    "category": "Sur mesure",
+    "format": "Outil de gestion interne",
+    "tags": [
+      {
+        "label": "Web app",
+        "icon": "window"
+      },
+      {
+        "label": "Outil interne",
+        "icon": "tool"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/captures/fullvalue-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/fullvalue-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/fullvalue-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Le Cockpit est un outil de gestion interne en accès privé : un espace de pilotage qui fonctionne en local ou synchronisé entre appareils.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Centraliser en un seul endroit le suivi de l’activité, avec un accès réservé.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un outil sur mesure, en accès privé.</p><ul role=\"list\"><li>Accès protégé par code</li><li>Données conservées en local, synchronisation entre appareils sur demande</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "mercura",
+    "name": "Mercura",
+    "category": "Sur mesure",
+    "format": "CRM de gestion interne",
+    "tags": [
+      {
+        "label": "Web app",
+        "icon": "window"
+      },
+      {
+        "label": "Outil interne",
+        "icon": "tool"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/captures/mercura-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/mercura-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/mercura-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "Mercura est un espace de gestion interne pour une marque de parfums : suivi des coûts, de la rentabilité et de la stratégie.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Piloter les coûts et la rentabilité d’une marque demande un outil dédié, réservé à l’équipe.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un CRM interne sur mesure, en accès protégé.</p><ul role=\"list\"><li>Suivi des coûts et de la rentabilité</li><li>Partie stratégique de l’activité</li><li>Espace verrouillé par code PIN</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "childs-kitchen",
+    "name": "Child’s Kitchen",
+    "category": "Sur mesure",
+    "format": "Plateforme de restauration scolaire",
+    "tags": [
+      {
+        "label": "Application multi-rôles",
+        "icon": "app"
+      },
+      {
+        "label": "Sur mesure",
+        "icon": "tool"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "period": "fin 2025",
+    "url": "",
+    "cover": "/assets/img/projects/childs-kitchen/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/childs-kitchen/cover.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/childs-kitchen/screen-1.webp"
+    ],
+    "description": "Child’s Kitchen relie parents, traiteurs et écoles dans un même système pour gérer les menus des enfants. La plateforme est déployée dans des écoles au Maroc.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Réservations, paiements, production des repas et distribution en classe reposaient sur des échanges dispersés entre les familles, les fournisseurs et les établissements.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une plateforme avec un accès dédié à chaque rôle, qui automatise le circuit de bout en bout.</p><ul role=\"list\"><li>Les parents réservent et paient les menus de la semaine dans l’application</li><li>Les fournisseurs voient chaque jour les repas à préparer</li><li>Les écoles savent quel menu distribuer à chaque élève</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Développement."
+      }
+    ]
+  },
+  {
+    "slug": "jedeeshop",
+    "name": "Jedeeshop",
+    "category": "Shopify",
+    "format": "Concept e-commerce",
+    "tags": [
+      {
+        "label": "Onepage",
+        "icon": "onepage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "period": "en 2024",
+    "url": "",
+    "logo": "/assets/img/projects/jedeeshop/logo.svg",
+    "cover": "/assets/img/projects/jedeeshop/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/jedeeshop/cover.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/projects/jedeeshop/mobile.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/jedeeshop/screen-1.webp",
+      "/assets/img/projects/jedeeshop/screen-2.webp",
+      "/assets/img/projects/jedeeshop/screen-3.webp"
+    ],
+    "description": "Jedeeshop est une marque e-commerce spécialisée dans la vente de vidéoprojecteurs. Cette page est un concept imaginé pour une présentation produit qui convertit mieux.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une proposition conçue pour le fondateur de la marque, afin d’explorer une direction e-commerce plus forte.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une page produit pensée pour la conversion : mise en scène du produit, arguments clés et preuve sociale. Le concept a ouvert la voie à une collaboration directe avec la marque.</p>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "kovering-agency",
+    "name": "Kovering Agency",
+    "category": "Site vitrine",
+    "format": "Site d’agence",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Site vitrine",
+        "icon": "globe"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "period": "en 2024",
+    "url": "",
+    "logo": "/assets/img/projects/kovering-agency/logo.svg",
+    "cover": "/assets/img/projects/kovering-agency/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/kovering-agency/cover.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/projects/kovering-agency/mobile.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/kovering-agency/screen-1.webp",
+      "/assets/img/projects/kovering-agency/screen-2.webp",
+      "/assets/img/projects/kovering-agency/screen-3.webp"
+    ],
+    "description": "Kovering Agency est une agence de contenus UGC qui aide les marques e-commerce à produire des créatives qui convertissent. Son site combine prise de rendez-vous et vente directe.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Un projet mené dans la continuité de la collaboration avec le fondateur de Jedeeshop, dont Kovering est l’une des activités.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un site à l’expérience soignée et très animée.</p><ul role=\"list\"><li>Prise de rendez-vous téléphonique</li><li>Vente de packs de créatives UGC via une section e-commerce intégrée</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "chicken-maestro",
+    "name": "Chicken Maestro",
+    "category": "Sur mesure",
+    "format": "Commande & livraison pour restaurant",
+    "tags": [
+      {
+        "label": "Plateforme de commande",
+        "icon": "window"
+      },
+      {
+        "label": "Sur mesure",
+        "icon": "tool"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "period": "en 2023",
+    "url": "",
+    "logo": "/assets/img/projects/chicken-maestro/logo.svg",
+    "cover": "/assets/img/projects/chicken-maestro/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/chicken-maestro/cover.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/projects/chicken-maestro/mobile.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/chicken-maestro/screen-1.webp",
+      "/assets/img/projects/chicken-maestro/screen-2.webp",
+      "/assets/img/projects/chicken-maestro/screen-3.webp"
+    ],
+    "description": "Chicken Maestro est une plateforme de commande en ligne pour un restaurant de restauration rapide, avec son propre circuit de livraison.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>L’objectif : sortir des plateformes tierces comme Uber Eats, réduire les commissions et proposer des prix plus bas aux clients grâce à une livraison entièrement maîtrisée.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un système complet, de la commande à la livraison.</p><ul role=\"list\"><li>Commande en ligne pour les clients</li><li>Outils de répartition et module dédié aux livreurs du restaurant</li><li>Suivi des positions des livreurs en temps réel</li><li>Lien de suivi de commande envoyé au client</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "Yanis El Yassiri",
+        "role": "Développement."
+      }
+    ]
+  }
+]

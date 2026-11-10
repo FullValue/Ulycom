@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+<meta charset="utf-8"/>
+<title>{{title}}</title>
+<meta name="description" content="{{description}}"/>
+<meta property="og:title" content="{{title}}"/>
+<meta property="og:description" content="{{description}}"/>
+<meta property="og:type" content="website"/>
+{{#if canonical}}<link rel="canonical" href="{{canonical}}"/>
+<meta property="og:url" content="{{canonical}}"/>
+{{/if}}<meta name="twitter:card" content="summary_large_image"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link rel="preload" href="/assets/fonts/Geist-Regular.woff2" as="font" type="font/woff2" crossorigin/>
+<link rel="preload" href="/assets/fonts/Geist-SemiBold.woff2" as="font" type="font/woff2" crossorigin/>
+<link href="/assets/css/base.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="/assets/css/ulycom.css" rel="stylesheet" type="text/css"/>
+{{#if hasDisplayFont}}<style>@font-face{font-family:Ppmori;src:url("/assets/fonts/PPMori.woff2") format("woff2");font-weight:600;font-style:normal;font-display:swap}</style>
+{{/if}}<script>!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
+<link href="/assets/img/favicon.svg" rel="icon" type="image/svg+xml"/>
+<script>window.SITE = { calLink: "{{site.calLink}}" };</script>
+</head>
+<body data-scrolling-started="false" data-scrolling-direction="" data-nav-status="closed" data-barba="wrapper" class="u-mode-base">{{> shell}}{{{main}}}
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1.6.11" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@barba/core@2.10.3" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@barba/prefetch@2.2.0/dist/barba-prefetch.umd.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/Flip.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/CustomEase.min.js" defer></script>
+<script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+<script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "placeholder": true,
+    "quote": "“Emplacement réservé à un avis client : il sera remplacé par un vrai témoignage.”",
+    "name": "Client 01",
+    "avatar": ""
+  },
+  {
+    "placeholder": true,
+    "quote": "“Deuxième emplacement d’avis : quelques lignes sur la collaboration et le résultat obtenu.”",
+    "name": "Client 02",
+    "avatar": ""
+  },
+  {
+    "placeholder": true,
+    "quote": "“Troisième emplacement d’avis, affiché en rotation avec les autres toutes les cinq secondes.”",
+    "name": "Client 03",
+    "avatar": ""
+  }
+]

@@ -1,0 +1,76 @@
+{
+  "name": "ULYCOM",
+  "url": "",
+  "title": "ULYCOM — Sites internet, applications et outils sur mesure",
+  "description": "ULYCOM conçoit des sites vitrines, des boutiques Shopify, des applications mobiles et des outils sur mesure, avec des briques IA intégrées en partenariat avec Ulycorp.",
+  "email": "",
+  "calLink": "",
+  "whatsapp": "",
+  "partner": {
+    "name": "Ulycorp",
+    "url": "https://ulycorp.com",
+    "navLabel": "Partenaire IA"
+  },
+  "cta": {
+    "button": "Réserver un appel",
+    "index": "01",
+    "tag": "DÉMARREZ AUJOURD’HUI",
+    "title": "Lançons votre projet.",
+    "text": "Site vitrine, boutique Shopify, application mobile ou outil sur mesure : parlons-en, puis mettons-le en ligne.",
+    "note": "SITES VITRINES · E-COMMERCE SHOPIFY · APPLICATIONS · OUTILS SUR MESURE · IA"
+  },
+  "hero": {
+    "title": "Sites et apps sur mesure pour des projets uniques.",
+    "tag": "& briques IA",
+    "text": "Sites vitrines, e-commerce Shopify, applications mobiles et outils métier : nous concevons et développons vos produits digitaux, avec des briques IA intégrées en partenariat avec Ulycorp.",
+    "secondary": "Voir nos réalisations"
+  },
+  "reviewsLabel": "Avis clients",
+  "rating": "—",
+  "clientsLine": "Ils nous font confiance pour concevoir et développer leurs produits digitaux.",
+  "works": {
+    "title": "Quand un site improvisé ne suffit plus.",
+    "all": "Voir tous les projets"
+  },
+  "realisations": {
+    "text": "Plateformes IA, applications mobiles, boutiques en ligne et outils sur mesure : un aperçu de ce que nous concevons.",
+    "button": "Voir les projets showcase",
+    "showcaseTitle": "Projets",
+    "showcaseTitleFade": "Showcase.",
+    "showcaseText": "Une sélection de nos projets les plus représentatifs, de la plateforme IA à la boutique en ligne, chacun avec son univers propre.",
+    "archiveTitle": "Naviguez à travers les archives des projets ULYCOM.",
+    "archiveText": "Filtrez par type de projet, explorez et découvrez ce que vous n’étiez pas venu chercher."
+  },
+  "labels": {
+    "details": "Détails du projet",
+    "live": "Voir en ligne",
+    "added": "Projet réalisé",
+    "more": "Plus d’informations",
+    "visit": "Voir le projet en ligne"
+  },
+  "legal": {
+    "company": "",
+    "status": "",
+    "address": "",
+    "siret": "",
+    "director": "",
+    "host": ""
+  },
+  "footer": {
+    "lead": "Un projet en tête ? Parlons-en.",
+    "text": "Site vitrine, boutique Shopify, application mobile ou outil sur mesure : nous lisons chaque demande.",
+    "status": [
+      "Ouvert aux nouveaux projets.",
+      "Briques IA en partenariat avec Ulycorp."
+    ],
+    "tagline": "Sites, apps & outils sur mesure.",
+    "letters": [
+      "U",
+      "L",
+      "Y",
+      "C",
+      "O",
+      "M"
+    ]
+  }
+}

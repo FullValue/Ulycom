@@ -1,0 +1,46 @@
+{
+  "groups": [
+    {
+      "title": "sites internet",
+      "rows": [
+        "Site vitrine sur mesure",
+        "Boutique e-commerce Shopify",
+        "Structure & rédaction des contenus",
+        "Suivi & recommandations post-lancement"
+      ]
+    },
+    {
+      "title": "design",
+      "rows": [
+        "Recherches & itérations du style graphique",
+        "Maquettes pensées pour votre projet",
+        "Allers-retours design inclus"
+      ]
+    },
+    {
+      "title": "développement",
+      "rows": [
+        "Applications mobiles iOS & Android",
+        "Optimisation SEO",
+        "Optimisation des performances",
+        "Outils métier sur mesure"
+      ]
+    },
+    {
+      "title": "gestion de projet",
+      "rows": [
+        "Espace client lié au projet",
+        "Support réactif",
+        "Échanges en direct tout au long du projet",
+        "Cadrage du projet via un cahier des charges",
+        "Designer & développeur dédiés",
+        "Suivi du projet en temps réel",
+        "Délais adaptés à votre projet"
+      ]
+    }
+  ],
+  "addon": {
+    "label": "Briques IA × Ulycorp",
+    "tag": "add-on"
+  }
+}

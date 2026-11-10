@@ -1,0 +1,472 @@
+/* Ajustements propres à ULYCOM, chargés après base.css (export du design) et custom.css. */
+
+/* La police de titres d'origine (PP Mori, licence commerciale) n'est pas fournie :
+   Geist prend le relais tant que public/assets/fonts/PPMori.woff2 est absent. */
+:root {
+  --_typography---font--primary: Ppmori, Geist, Arial, sans-serif;
+}
+
+/* Le nom « ULYCOM » est plus large que le logotype d'origine. */
+.logo__text {
+  width: 5.1em;
+  overflow: visible;
+}
+
+/* Bloc affiché à la place du calendrier tant que site.calLink est vide. */
+.booking_placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75em;
+  min-height: 26em;
+  padding: 3em 1.5em;
+  text-align: center;
+  border: 1px dashed color-mix(in srgb, currentColor 22%, transparent);
+  border-radius: 1.5em;
+  background-color: color-mix(in srgb, currentColor 2%, transparent);
+}
+.booking_placeholder p {
+  max-width: 34ch;
+  margin: 0;
+}
+.booking_placeholder__tag {
+  padding: 0.25em 0.75em;
+  border-radius: 999em;
+  color: var(--brand--blue);
+  background-color: color-mix(in srgb, var(--brand--blue) 8%, transparent);
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------ */
+/* Bleu ULYCOM : il remplace le noir du design d'origine.             */
+/* Même bleu que la référence (rgb 1, 113, 227). Le texte courant     */
+/* reste sombre pour la lisibilité.                                   */
+/* ------------------------------------------------------------------ */
+:root {
+  --brand--blue: #0171e3;
+  --brand--blue-light: #cce6ff;
+  --neutral--black: #0171e3; /* surfaces « sombres » : preloader, cartes showcase, modale, panneaux */
+  --neutral--gray: #2f8cf0; /* surfaces secondaires : boutons vidéo, infobulles */
+  --gr-dark: linear-gradient(127deg, #1f86f2 -3.14%, #0162c8 106.44%);
+  --gr-btn: linear-gradient(220deg, #3f9bf7 0%, #0168d2 100%);
+  --gr-gray: radial-gradient(60.39% 100% at 50.26% 0%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%), #2f8cf0;
+  --sh-btn: -21px 16px 10px 0 rgba(1, 72, 150, 0.04), -12px 9px 9px 0 rgba(1, 72, 150, 0.12), -5px 4px 6px 0 rgba(1, 72, 150, 0.2),
+    -1px 1px 4px 0 rgba(1, 72, 150, 0.24);
+  --sh-logo: -5px 4px 6px 0 rgba(1, 72, 150, 0.1), -1px 1px 4px 0 rgba(1, 72, 150, 0.18);
+}
+.show_logo__bg {
+  background-color: var(--brand--blue);
+}
+@media screen and (max-width: 991px) {
+  /* panneau « Plus d'informations » de la page projet (tablette et mobile) */
+  .project_details__wrap {
+    background-color: color-mix(in srgb, var(--brand--blue) 92%, transparent);
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Section d'appel à l'action (avant le pied de page)                 */
+/* Fond : shader « Wave Gradient » dessiné dans le canvas (main.js).  */
+/* ------------------------------------------------------------------ */
+.cta_flux {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6.25em 1.25em;
+  color: #fff;
+  /* aperçu statique tant que le canvas n'a pas démarré (ou si WebGL est indisponible) */
+  background: linear-gradient(115deg, #0171e3 0%, #0171e3 38%, #9ccbfb 62%, #2a86ee 78%, #0171e3 100%);
+}
+.cta_flux__canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+.cta_flux__canvas[data-ready="true"] {
+  opacity: 1;
+}
+.cta_flux__container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  width: 100%;
+  max-width: 37.5em;
+  text-align: center;
+}
+.cta_flux__pill {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  overflow: hidden;
+  padding: 0.5em 0.875em 0.5em 1em;
+  border-radius: 99px;
+  background-color: rgba(204, 230, 255, 0.1);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  font-size: 0.875em;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+.cta_flux__pill-line {
+  flex: none;
+  width: 1.7em;
+  height: 1px;
+  background-color: #fff;
+}
+.cta_flux__pill-shine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1.45em;
+  height: 1.45em;
+  margin-top: -0.725em;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  filter: blur(5px);
+  opacity: 0.35;
+  animation: cta-flux-shine 4s linear infinite;
+  pointer-events: none;
+}
+@keyframes cta-flux-shine {
+  from {
+    transform: translateX(-3.5em);
+  }
+  to {
+    transform: translateX(26em);
+  }
+}
+.cta_flux__title {
+  margin: 0;
+  font-size: 3.5em;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  color: #fff;
+}
+.cta_flux__text {
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-wrap: balance;
+}
+/* Le bouton du site, en blanc sur le fond bleu */
+.cta_flux .btn_wrap {
+  --btn-text-color: #1d1d1f;
+  --btn-bg-color: #fff;
+  --btn-shadow: 0 10px 24px -10px rgba(1, 50, 110, 0.45), 0 1px 2px 0 rgba(1, 50, 110, 0.14);
+}
+.cta_flux .btn_border__bg {
+  --main-color: var(--brand--blue);
+  --bg-color: color-mix(in srgb, var(--brand--blue) 22%, transparent);
+}
+.cta_flux__note {
+  margin: 0;
+  font-size: 0.75em;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: #fff;
+}
+@media screen and (max-width: 767px) {
+  .cta_flux {
+    padding: 5em 1.25em;
+  }
+  .cta_flux__title {
+    font-size: 2.5em;
+  }
+  .cta_flux__text {
+    font-size: 1.125em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cta_flux__pill-shine {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* Vidéo de démonstration dans la galerie d'un projet */
+.project_video {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75em;
+  margin: 0;
+}
+.project_video video {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 1.125em;
+}
+
+/* ------------------------------------------------------------------ */
+/* Pied de page révélé au scroll (reprise du footer de good-fella.com) */
+/* Le contenu de la page passe au-dessus (z-index 1, fond opaque) et  */
+/* se lève ; le pied de page, dessous, reste immobile (main.js).      */
+/* ------------------------------------------------------------------ */
+.main-content > :not(.footer_flux) {
+  position: relative;
+  z-index: 1;
+  background-color: var(--neutral--light);
+}
+.footer_flux {
+  --ff-muted: rgba(255, 255, 255, 0.66);
+  --ff-faint: rgba(255, 255, 255, 0.14);
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  min-height: 100svh;
+  padding-top: 3em;
+  background-color: var(--brand--blue);
+  color: #fff;
+  will-change: transform;
+}
+.footer_flux__ascii {
+  position: absolute;
+  top: 12.5%;
+  bottom: 0;
+  z-index: 1;
+  width: 50%;
+  pointer-events: none;
+}
+.footer_flux__ascii.cc-left {
+  left: 0;
+}
+.footer_flux__ascii.cc-right {
+  right: 0;
+}
+.footer_flux__ascii canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.footer_flux__inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100svh - 3em);
+  padding: 0 var(--_responsive---padding--padding-horizontal);
+  pointer-events: none;
+}
+.footer_flux__inner a,
+.footer_flux__inner button,
+.footer_flux__col {
+  pointer-events: auto;
+}
+.footer_flux__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 1.25em;
+}
+.footer_flux__col.cc-left {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+}
+.footer_flux__col.cc-center {
+  grid-column: 6 / span 2;
+}
+.footer_flux__col.cc-right {
+  grid-column: 10 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.footer_flux__lead {
+  margin: 0;
+  font-weight: 500;
+}
+.footer_flux__muted {
+  margin: 0;
+  font-size: 0.875em;
+  color: var(--ff-muted);
+}
+.footer_flux .btn_wrap {
+  --btn-text-color: #1d1d1f;
+  --btn-bg-color: #fff;
+  --btn-shadow: 0 10px 24px -10px rgba(1, 50, 110, 0.45), 0 1px 2px 0 rgba(1, 50, 110, 0.14);
+}
+.footer_flux .btn_border__bg {
+  --main-color: var(--brand--blue);
+  --bg-color: color-mix(in srgb, var(--brand--blue) 22%, transparent);
+}
+.footer_flux__status {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25em;
+  margin-top: 0.5em;
+}
+.footer_flux__status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  font-family: var(--_typography---font--mono);
+  font-size: 0.8125em;
+  text-transform: uppercase;
+  color: var(--ff-muted);
+}
+.footer_flux__pulse {
+  flex: none;
+  width: 0.5em;
+  height: 0.5em;
+  background-color: #fff;
+  animation: footer-flux-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes footer-flux-pulse {
+  50% {
+    opacity: 0.35;
+  }
+}
+.footer_flux__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.footer_flux__link {
+  font-family: var(--_typography---font--mono);
+  font-size: 0.875em;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--ff-muted);
+  text-decoration: none;
+  transition: color var(--animation);
+}
+.footer_flux__link:hover {
+  color: #fff;
+}
+.footer_flux__links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.125em;
+}
+.footer_flux__underline {
+  color: var(--ff-muted);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  transition: color var(--animation), background-size var(--animation);
+}
+.footer_flux__underline:hover {
+  color: #fff;
+  background-position: 100% 100%;
+  background-size: 0% 1px;
+}
+.footer_flux__keys {
+  opacity: 0.55;
+}
+.footer_flux__key {
+  display: flex;
+  align-items: center;
+  gap: 0.375em;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: var(--_typography---font--mono);
+  font-size: 0.8125em;
+  color: #fff;
+  cursor: pointer;
+}
+.footer_flux__key kbd {
+  padding: 0.125em 0.3em;
+  font-family: inherit;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+.footer_flux__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 12.5%;
+  text-align: center;
+  color: var(--ff-muted);
+  pointer-events: auto;
+}
+.footer_flux__word {
+  position: relative;
+  margin-top: auto;
+  overflow: hidden;
+}
+.footer_flux__word-inner {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--_typography---font--primary);
+  font-weight: 600;
+  font-size: 23vw; /* ajusté au pixel près par main.js pour remplir la largeur */
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+  color: var(--ff-faint);
+  user-select: none;
+}
+.footer_flux .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.footer_flux__word-inner span {
+  display: inline-block;
+  will-change: transform;
+}
+@media screen and (max-width: 991px) {
+  .footer_flux__grid {
+    row-gap: 3em;
+  }
+  .footer_flux__col.cc-left,
+  .footer_flux__col.cc-center,
+  .footer_flux__col.cc-right {
+    grid-column: 1 / -1;
+  }
+  .footer_flux__nav {
+    align-items: flex-start;
+  }
+  .footer_flux__copy {
+    padding-top: 4em;
+    padding-bottom: 2em;
+  }
+  .footer_flux__ascii {
+    top: 40%;
+    opacity: 0.35;
+  }
+}
+/* La barre de navigation s'efface quand le pied de page occupe l'écran (comme sur la référence) */
+.header {
+  transition: translate 0.6s var(--smooth-ease);
+}
+body[data-footer-open] .header {
+  translate: 0 -130% !important; /* GSAP écrit « translate: none » en ligne sur .header */
+}
+@media (prefers-reduced-motion: reduce) {
+  .footer_flux__pulse {
+    animation: none;
+  }
+}
