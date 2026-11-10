@@ -1,50 +1,54 @@
 [
   {
-    "name": "Yoovi",
-    "logo": ""
+    "name": "AASP",
+    "logo": "/assets/img/clients/aasp.webp"
   },
   {
-    "name": "Lead’Em",
-    "logo": ""
-  },
-  {
-    "name": "Nefsy",
-    "logo": ""
-  },
-  {
-    "name": "Maison Maya",
-    "logo": ""
-  },
-  {
-    "name": "Maison Isis",
-    "logo": ""
+    "name": "Amelia BTP",
+    "logo": "/assets/img/clients/amelia-btp.webp"
   },
   {
     "name": "Awa Plaisir",
-    "logo": ""
-  },
-  {
-    "name": "Mickaël Lima",
-    "logo": ""
-  },
-  {
-    "name": "Les Partenaires DM",
-    "logo": ""
-  },
-  {
-    "name": "gallery.",
-    "logo": ""
-  },
-  {
-    "name": "Jedeeshop",
-    "logo": ""
-  },
-  {
-    "name": "Kovering",
-    "logo": ""
+    "logo": "/assets/img/clients/awa-plaisir.webp"
   },
   {
     "name": "Chicken Maestro",
-    "logo": ""
+    "logo": "/assets/img/clients/chicken-maestro.webp"
+  },
+  {
+    "name": "Croix-Rouge française",
+    "logo": "/assets/img/clients/croix-rouge.webp"
+  },
+  {
+    "name": "FC Familya",
+    "logo": "/assets/img/clients/fc-familya.webp"
+  },
+  {
+    "name": "Jedee’s",
+    "logo": "/assets/img/clients/jedees.webp"
+  },
+  {
+    "name": "Kokeo ONG",
+    "logo": "/assets/img/clients/kokeo-ong.webp"
+  },
+  {
+    "name": "Kovering Agency",
+    "logo": "/assets/img/clients/kovering-agency.webp"
+  },
+  {
+    "name": "Nescookies",
+    "logo": "/assets/img/clients/nescookies.webp"
+  },
+  {
+    "name": "RSM Auto",
+    "logo": "/assets/img/clients/rsm-auto.webp"
+  },
+  {
+    "name": "TheKovering",
+    "logo": "/assets/img/clients/thekovering.webp"
+  },
+  {
+    "name": "TikTok Pro",
+    "logo": "/assets/img/clients/tiktok-pro.webp"
   }
 ]
