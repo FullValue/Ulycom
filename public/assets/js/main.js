@@ -2930,7 +2930,466 @@ function initScriptsBeforeEnter() {
     has("[data-footer-reveal]") && initFooterReveal(),
     has('[data-offer="card"]') && initPricingToggle(),
     has(".btn_border") && initButtonBorders(),
-    has("#my-cal-inline") && initCalEmbed());
+    has("#my-cal-inline") && initCalEmbed(),
+    has("[data-booking]") && initBooking());
+}
+/* Réservation : calendrier, créneaux, formulaire et confirmation (page /rendez-vous).
+   Réglages dans site.json → booking (jours, horaires, pauses, préavis, endpoint).
+   Envoi : endpoint (POST JSON, ex. Formspree) ; sinon e-mail pré-rempli ; sinon WhatsApp.
+   Les créneaux sont calculés à partir des règles : ils ne lisent pas un agenda réel. */
+function initBooking(scope = document) {
+  const root = scope.querySelector("[data-booking]");
+  if (!root || root.__bk) return;
+  root.__bk = true;
+  let cfg = {};
+  try {
+    cfg = JSON.parse(root.querySelector("[data-bk-config]").textContent);
+  } catch (e) {}
+  const TZ = "Europe/Paris",
+    duration = +cfg.duration || 30,
+    step = +cfg.step || 30,
+    days = cfg.days || [1, 2, 3, 4, 5],
+    maxDays = +cfg.maxDays || 60,
+    notice = (+cfg.minNoticeHours || 0) * 36e5;
+  const q = (s) => root.querySelector(s),
+    qa = (s) => Array.from(root.querySelectorAll(s));
+  const els = {
+    grid: q("[data-bk-grid]"),
+    month: q("[data-bk-month]"),
+    prev: q("[data-bk-prev]"),
+    next: q("[data-bk-next]"),
+    day: q("[data-bk-day]"),
+    slots: q("[data-bk-slots]"),
+    summary: q("[data-bk-summary]"),
+    sumDate: q("[data-bk-summary-date]"),
+    sumTime: q("[data-bk-summary-time]"),
+    form: q("[data-bk-form]"),
+    error: q("[data-bk-error]"),
+    submit: q("[data-bk-submit]"),
+    submitLabel: q("[data-bk-submit-label]"),
+    doneTitle: q("[data-bk-done-title]"),
+    doneText: q("[data-bk-done-text]"),
+    doneDate: q("[data-bk-done-date]"),
+    doneTime: q("[data-bk-done-time]"),
+    gcal: q("[data-bk-gcal]"),
+    ics: q("[data-bk-ics]"),
+  };
+  /* --- dates en heure de Paris --- */
+  const fmtParts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: TZ,
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const parisParts = (date) => {
+    const o = {};
+    fmtParts.formatToParts(date).forEach((p) => p.type !== "literal" && (o[p.type] = +p.value));
+    return o;
+  };
+  const parisToDate = (y, m, d, mins) => {
+    const want = Date.UTC(y, m - 1, d, 0, mins);
+    let t = want;
+    for (let i = 0; i < 2; i++) {
+      const p = parisParts(new Date(t));
+      t -= Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute) - want;
+    }
+    return new Date(t);
+  };
+  const toMin = (s) => {
+    const [h, m] = String(s).split(":").map(Number);
+    return h * 60 + (m || 0);
+  };
+  const hhmm = (mins) => String(Math.floor(mins / 60)).padStart(2, "0") + ":" + String(mins % 60).padStart(2, "0");
+  const keyOf = (y, m, d) => y + "-" + String(m).padStart(2, "0") + "-" + String(d).padStart(2, "0");
+  const fromKey = (k) => k.split("-").map(Number);
+  const weekday = (y, m, d) => new Date(Date.UTC(y, m - 1, d)).getUTCDay();
+  const longDate = (y, m, d) =>
+    new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(
+      new Date(Date.UTC(y, m - 1, d)),
+    );
+  const dayTitle = (y, m, d) =>
+    new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", timeZone: "UTC" }).format(
+      new Date(Date.UTC(y, m - 1, d)),
+    );
+  const monthTitle = (y, m) =>
+    new Intl.DateTimeFormat("fr-FR", { month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(Date.UTC(y, m - 1, 1)));
+  const now = parisParts(new Date()),
+    todayUTC = Date.UTC(now.year, now.month - 1, now.day),
+    lastUTC = todayUTC + maxDays * 864e5;
+  const breaks = (cfg.breaks || []).map(([a, b]) => [toMin(a), toMin(b)]);
+  const slotsFor = (y, m, d) => {
+    const t = Date.UTC(y, m - 1, d);
+    if (t < todayUTC || t > lastUTC || !days.includes(weekday(y, m, d))) return [];
+    const out = [],
+      limit = Date.now() + notice;
+    for (let s = toMin(cfg.start || "09:00"); s + duration <= toMin(cfg.end || "18:00"); s += step) {
+      if (breaks.some(([a, b]) => s < b && s + duration > a)) continue;
+      parisToDate(y, m, d, s).getTime() > limit && out.push(s);
+    }
+    return out;
+  };
+  /* --- état --- */
+  const state = { y: now.year, m: now.month, key: "", time: null, step: "date" };
+  for (let i = 0; i <= maxDays; i++) {
+    const p = new Date(todayUTC + i * 864e5);
+    const y = p.getUTCFullYear(),
+      m = p.getUTCMonth() + 1,
+      d = p.getUTCDate();
+    if (slotsFor(y, m, d).length) {
+      state.key = keyOf(y, m, d);
+      state.y = y;
+      state.m = m;
+      break;
+    }
+  }
+  /* --- calendrier --- */
+  const renderMonth = (dir) => {
+    const { y, m } = state,
+      first = weekday(y, m, 1),
+      lead = (first + 6) % 7,
+      count = new Date(Date.UTC(y, m, 0)).getUTCDate();
+    els.month.textContent = monthTitle(y, m);
+    els.prev.disabled = Date.UTC(y, m - 1, 1) <= Date.UTC(now.year, now.month - 1, 1);
+    els.next.disabled = Date.UTC(y, m, 1) > lastUTC;
+    const frag = document.createDocumentFragment();
+    let row;
+    for (let i = 0; i < 42; i++) {
+      if (i % 7 === 0) {
+        row = document.createElement("div");
+        row.setAttribute("role", "row");
+        row.style.display = "contents";
+        frag.appendChild(row);
+      }
+      const d = i - lead + 1,
+        b = document.createElement("button");
+      b.type = "button";
+      b.className = "bk_day";
+      b.setAttribute("role", "gridcell");
+      if (d < 1 || d > count) {
+        b.classList.add("is-outside");
+        b.disabled = true;
+        b.tabIndex = -1;
+        b.setAttribute("aria-hidden", "true");
+      } else {
+        const k = keyOf(y, m, d),
+          ok = slotsFor(y, m, d).length > 0;
+        b.textContent = d;
+        b.dataset.key = k;
+        b.setAttribute("aria-label", longDate(y, m, d) + (ok ? "" : ", indisponible"));
+        b.setAttribute("aria-selected", k === state.key ? "true" : "false");
+        Date.UTC(y, m - 1, d) === todayUTC && b.classList.add("is-today");
+        ok ? b.classList.add("is-available") : (b.disabled = true);
+        b.tabIndex = k === state.key ? 0 : -1;
+      }
+      row.appendChild(b);
+    }
+    els.grid.replaceChildren(frag);
+    if (!els.grid.querySelector('[tabindex="0"]')) {
+      const f = els.grid.querySelector(".bk_day:not(:disabled)");
+      f && (f.tabIndex = 0);
+    }
+    els.grid.classList.remove("is-next", "is-prev");
+    if (dir) {
+      void els.grid.offsetWidth;
+      els.grid.classList.add(dir > 0 ? "is-next" : "is-prev");
+    }
+    // rows sans cellule visible : on les masque (mois sur 5 lignes)
+    Array.from(els.grid.children).forEach((r) => {
+      r.style.display = Array.from(r.children).every((c) => c.classList.contains("is-outside")) ? "none" : "contents";
+    });
+  };
+  const shiftMonth = (n) => {
+    let m = state.m + n,
+      y = state.y;
+    m < 1 && ((m = 12), y--);
+    m > 12 && ((m = 1), y++);
+    state.y = y;
+    state.m = m;
+    renderMonth(n);
+  };
+  /* --- créneaux --- */
+  const renderSlots = () => {
+    state.time = null;
+    if (!state.key) {
+      els.day.textContent = "Aucune date disponible";
+      els.slots.innerHTML = '<p class="bk_slots_empty">Aucun créneau ouvert pour le moment. Écrivez-nous et nous trouverons un horaire ensemble.</p>';
+      return;
+    }
+    const [y, m, d] = fromKey(state.key),
+      list = slotsFor(y, m, d);
+    els.day.textContent = dayTitle(y, m, d);
+    const frag = document.createDocumentFragment();
+    list.forEach((s, i) => {
+      const item = document.createElement("div");
+      item.className = "bk_slot_item";
+      item.setAttribute("role", "listitem");
+      item.style.setProperty("--i", i);
+      item.innerHTML =
+        '<button type="button" class="bk_slot" aria-pressed="false">' +
+        hhmm(s) +
+        '</button><button type="button" class="bk_slot_next" tabindex="-1">Continuer</button>';
+      item.dataset.time = s;
+      frag.appendChild(item);
+    });
+    els.slots.replaceChildren(frag);
+    els.slots.scrollTop = 0;
+  };
+  const selectSlot = (item) => {
+    qa(".bk_slot_item").forEach((it) => {
+      const on = it === item;
+      it.classList.toggle("is-selected", on);
+      it.querySelector(".bk_slot").setAttribute("aria-pressed", on ? "true" : "false");
+      it.querySelector(".bk_slot_next").tabIndex = on ? 0 : -1;
+    });
+    state.time = item ? +item.dataset.time : null;
+  };
+  const selectDay = (key) => {
+    state.key = key;
+    qa(".bk_day[data-key]").forEach((b) => {
+      const on = b.dataset.key === key;
+      b.setAttribute("aria-selected", on ? "true" : "false");
+      b.tabIndex = on ? 0 : -1;
+    });
+    renderSlots();
+  };
+  /* --- étapes --- */
+  const slotText = () => {
+    const [y, m, d] = fromKey(state.key);
+    return {
+      date: longDate(y, m, d),
+      time: hhmm(state.time) + " – " + hhmm(state.time + duration) + " · " + (cfg.timezoneLabel || "Heure de Paris"),
+    };
+  };
+  const goStep = (name, focus) => {
+    state.step = name;
+    root.dataset.step = name;
+    qa("[data-bk-panel]").forEach((p) => (p.hidden = p.dataset.bkPanel !== name));
+    const picked = name === "form" && state.time !== null;
+    els.summary.hidden = !picked;
+    if (picked) {
+      const t = slotText();
+      els.sumDate.textContent = t.date;
+      els.sumTime.textContent = t.time;
+    }
+    if (focus) {
+      const target =
+        name === "form" ? q("#bk-name") : name === "done" ? els.doneTitle : els.grid.querySelector('[tabindex="0"]');
+      target && target.focus({ preventScroll: true });
+      const stacked = window.matchMedia("(max-width: 991px)").matches,
+        anchor = stacked && name !== "date" ? q('[data-bk-panel="' + name + '"]') : root.querySelector(".bk_card"),
+        top = anchor.getBoundingClientRect().top;
+      if (top < 0 || top > window.innerHeight * 0.6) {
+        window.lenis && window.lenis.scrollTo
+          ? window.lenis.scrollTo(anchor, { offset: -90 })
+          : window.scrollTo({ top: top + window.scrollY - 90, behavior: "smooth" });
+      }
+    }
+    window.lenis && window.lenis.resize && window.lenis.resize();
+    window.ScrollTrigger && ScrollTrigger.refresh();
+  };
+  /* --- évènements --- */
+  els.prev.addEventListener("click", () => shiftMonth(-1));
+  els.next.addEventListener("click", () => shiftMonth(1));
+  els.grid.addEventListener("click", (e) => {
+    const b = e.target.closest(".bk_day[data-key]");
+    b && !b.disabled && selectDay(b.dataset.key);
+  });
+  els.grid.addEventListener("keydown", (e) => {
+    const moves = { ArrowLeft: -1, ArrowRight: 1, ArrowUp: -7, ArrowDown: 7 };
+    const b = e.target.closest(".bk_day[data-key]");
+    if (!b) return;
+    if (e.key === "Enter" || e.key === " ") return;
+    if (!(e.key in moves)) return;
+    e.preventDefault();
+    const [y, m, d] = fromKey(b.dataset.key);
+    let t = Date.UTC(y, m - 1, d);
+    for (let i = 0; i < 62; i++) {
+      t += moves[e.key] * 864e5;
+      if (t < todayUTC || t > lastUTC) return;
+      const p = new Date(t),
+        ny = p.getUTCFullYear(),
+        nm = p.getUTCMonth() + 1,
+        nd = p.getUTCDate();
+      if (!slotsFor(ny, nm, nd).length) continue;
+      if (ny !== state.y || nm !== state.m) {
+        const dir = ny * 12 + nm > state.y * 12 + state.m ? 1 : -1;
+        state.y = ny;
+        state.m = nm;
+        renderMonth(dir);
+      }
+      selectDay(keyOf(ny, nm, nd));
+      const nb = els.grid.querySelector('[data-key="' + keyOf(ny, nm, nd) + '"]');
+      nb && nb.focus();
+      return;
+    }
+  });
+  els.slots.addEventListener("click", (e) => {
+    const item = e.target.closest(".bk_slot_item");
+    if (!item) return;
+    if (e.target.closest(".bk_slot_next")) {
+      state.time = +item.dataset.time;
+      goStep("form", true);
+      return;
+    }
+    if (item.classList.contains("is-selected") && window.matchMedia("(max-width: 767px)").matches) {
+      goStep("form", true);
+      return;
+    }
+    selectSlot(item);
+  });
+  q("[data-bk-back]").addEventListener("click", () => {
+    goStep("date", true);
+    const it = els.slots.querySelector('[data-time="' + state.time + '"]');
+    it && selectSlot(it);
+  });
+  q("[data-bk-restart]").addEventListener("click", () => {
+    els.form.reset();
+    renderSlots();
+    goStep("date", true);
+  });
+  /* --- formulaire --- */
+  const setErr = (name, msg) => {
+    const input = els.form.elements[name],
+      p = q('[data-bk-err="' + name + '"]');
+    input && input.setAttribute("aria-invalid", msg ? "true" : "false");
+    p && (p.textContent = msg || "");
+  };
+  ["nom", "email"].forEach((n) => els.form.elements[n].addEventListener("input", () => setErr(n, "")));
+  const showError = (msg) => {
+    els.error.textContent = msg;
+    els.error.hidden = !msg;
+  };
+  let icsUrl = "";
+  window.addDisposable && window.addDisposable(() => icsUrl && URL.revokeObjectURL(icsUrl));
+  const icsStamp = (dt) => dt.toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
+  const finish = (mode, data) => {
+    const [y, m, d] = fromKey(state.key),
+      start = parisToDate(y, m, d, state.time),
+      end = new Date(start.getTime() + duration * 6e4),
+      title = (cfg.title || "Appel découverte") + " — " + (cfg.name || "ULYCOM"),
+      details = (cfg.description || "") + (data.message ? "\n\n" + data.message : "");
+    const texts = {
+      sent: ["C’est noté !", "Votre demande est bien partie. Nous vous confirmons le créneau et le lien de la visio par e-mail."],
+      mail: ["Plus qu’une étape", "Votre messagerie s’est ouverte avec la demande pré-remplie : il ne reste qu’à l’envoyer."],
+      whatsapp: ["Plus qu’une étape", "WhatsApp s’est ouvert avec votre demande : il ne reste qu’à l’envoyer."],
+      preview: ["Aperçu local", "Aucun canal d’envoi n’est configuré (endpoint, e-mail ou WhatsApp dans site.json) : rien n’a été envoyé."],
+    };
+    els.doneTitle.textContent = texts[mode][0];
+    els.doneText.textContent = texts[mode][1];
+    const t = slotText();
+    els.doneDate.textContent = t.date;
+    els.doneTime.textContent = t.time;
+    els.gcal.href =
+      "https://calendar.google.com/calendar/render?action=TEMPLATE&text=" +
+      encodeURIComponent(title) +
+      "&dates=" +
+      icsStamp(start) +
+      "/" +
+      icsStamp(end) +
+      "&details=" +
+      encodeURIComponent(details) +
+      "&location=" +
+      encodeURIComponent(cfg.location || "");
+    const esc = (s) => String(s).replace(/[\\,;]/g, (c) => "\\" + c).replace(/\n/g, "\\n");
+    const ics = [
+      "BEGIN:VCALENDAR",
+      "VERSION:2.0",
+      "PRODID:-//ULYCOM//Reservation//FR",
+      "BEGIN:VEVENT",
+      "UID:" + icsStamp(start) + "-" + Math.random().toString(36).slice(2) + "@ulycom",
+      "DTSTAMP:" + icsStamp(new Date()),
+      "DTSTART:" + icsStamp(start),
+      "DTEND:" + icsStamp(end),
+      "SUMMARY:" + esc(title),
+      "DESCRIPTION:" + esc(details),
+      "LOCATION:" + esc(cfg.location || ""),
+      "END:VEVENT",
+      "END:VCALENDAR",
+    ].join("\r\n");
+    icsUrl && URL.revokeObjectURL(icsUrl);
+    icsUrl = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+    els.ics.href = icsUrl;
+    goStep("done", true);
+  };
+  els.form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    showError("");
+    const f = els.form.elements,
+      data = {
+        nom: f.nom.value.trim(),
+        email: f.email.value.trim(),
+        telephone: f.telephone.value.trim(),
+        entreprise: f.entreprise.value.trim(),
+        projet: (els.form.querySelector('[name="projet"]:checked') || {}).value || "",
+        budget: f.budget.value,
+        message: f.message.value.trim(),
+      };
+    let bad = "";
+    setErr("nom", data.nom ? "" : ((bad = bad || "nom"), "Indiquez votre nom."));
+    setErr(
+      "email",
+      /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email) ? "" : ((bad = bad || "email"), "Indiquez un e-mail valide."),
+    );
+    if (bad) {
+      f[bad].focus();
+      return;
+    }
+    if (f.website.value) return; // robot
+    const t = slotText(),
+      payload = Object.assign({ date: t.date, horaire: t.time, duree: duration + " min" }, data);
+    const lines = [
+      (cfg.title || "Appel découverte") + " : " + t.date + ", " + t.time,
+      "",
+      "Nom : " + data.nom,
+      "E-mail : " + data.email,
+      data.telephone && "Téléphone : " + data.telephone,
+      data.entreprise && "Entreprise : " + data.entreprise,
+      data.projet && "Projet : " + data.projet,
+      data.budget && "Budget : " + data.budget,
+      data.message && "\n" + data.message,
+    ].filter(Boolean);
+    if (cfg.endpoint) {
+      els.submit.setAttribute("aria-busy", "true");
+      els.submitLabel.textContent = "Envoi…";
+      try {
+        const r = await fetch(cfg.endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(payload),
+        });
+        if (!r.ok) throw new Error(r.status);
+        finish("sent", data);
+      } catch (err) {
+        showError("L’envoi n’a pas abouti. Réessayez dans un instant" + (cfg.email ? " ou écrivez-nous à " + cfg.email : "") + ".");
+      } finally {
+        els.submit.removeAttribute("aria-busy");
+        els.submitLabel.textContent = "Confirmer le rendez-vous";
+      }
+    } else if (cfg.email) {
+      window.location.href =
+        "mailto:" +
+        cfg.email +
+        "?subject=" +
+        encodeURIComponent("Rendez-vous : " + t.date + ", " + hhmm(state.time)) +
+        "&body=" +
+        encodeURIComponent(lines.join("\n"));
+      finish("mail", data);
+    } else if (cfg.whatsapp) {
+      window.open("https://wa.me/" + cfg.whatsapp + "?text=" + encodeURIComponent(lines.join("\n")), "_blank", "noopener");
+      finish("whatsapp", data);
+    } else if (/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname)) {
+      console.info("[réservation] aucun canal configuré, données :", payload);
+      finish("preview", data);
+    } else {
+      showError("La réservation en ligne n’est pas encore activée. Merci de réessayer plus tard.");
+    }
+  });
+  renderMonth(0);
+  renderSlots();
+  goStep("date", false);
 }
 function initScriptsAfterEnter() {
   (has('[data-dropdown="item"]') && initFaq(),

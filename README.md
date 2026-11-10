@@ -62,7 +62,10 @@ Tant qu'un champ image est vide, un visuel provisoire est généré automatiquem
 
 ### Réglages à renseigner dans `site.json`
 
-- `calLink` : identifiant Cal.com (`compte/type-de-rendez-vous`). Vide = un bloc d'attente s'affiche à la place du calendrier.
+- `booking` : le module de réservation de `/rendez-vous` (calendrier, créneaux, formulaire). Réglages : `days` (1 = lundi … 0 = dimanche), `start`, `end`, `step`, `breaks`, `duration` (minutes), `minNoticeHours`, `maxDays`, textes, `projectTypes`, `budgets`.
+  Les créneaux sont calculés à partir de ces règles, en heure de Paris : ils ne lisent pas un agenda réel.
+  Envoi de la demande, dans cet ordre : `booking.endpoint` (URL qui reçoit un POST JSON, par exemple un formulaire Formspree), sinon `email` (ouvre la messagerie du visiteur avec la demande pré-remplie), sinon `whatsapp`. Sans aucun des trois, le site en ligne affiche « réservation pas encore activée ».
+- `calLink` : identifiant Cal.com (`compte/type-de-rendez-vous`). S'il est rempli, l'agenda Cal.com remplace le module de réservation.
 - `whatsapp` : numéro au format international. Vide = la bulle renvoie vers `/rendez-vous`.
 - `email`, `url` (adresse finale du site, active le sitemap et les balises canoniques), `legal`.
 

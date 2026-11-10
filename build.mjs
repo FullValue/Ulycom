@@ -47,6 +47,13 @@ function loadData() {
   const digits = (site.whatsapp || '').replace(/\D/g, '');
   site.whatsappUrl = digits ? `https://wa.me/${digits}` : '/rendez-vous';
   site.whatsappExternal = Boolean(digits);
+  // Réglages du module de réservation, lus par initBooking (main.js)
+  site.bookingJson = JSON.stringify({
+    ...(site.booking || {}),
+    name: site.name,
+    email: site.email || '',
+    whatsapp: digits,
+  }).replace(/</g, '\\u003c');
 
   const projects = json('projects').map((p, i) => {
     const accent = ph.ACCENTS[i % ph.ACCENTS.length];

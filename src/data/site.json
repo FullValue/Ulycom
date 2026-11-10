@@ -72,5 +72,48 @@
       "O",
       "M"
     ]
+  },
+  "booking": {
+    "tag": "Réservation",
+    "heading": "Réservez votre appel découverte",
+    "lead": "Choisissez un jour et un horaire, laissez-nous deux mots sur votre projet : on s’occupe du reste.",
+    "title": "Appel découverte",
+    "duration": 30,
+    "location": "Visio (Google Meet)",
+    "timezoneLabel": "Heure de Paris",
+    "description": "30 minutes pour comprendre votre projet, vos objectifs et vos délais, puis vous proposer la bonne approche : site vitrine, boutique Shopify, application ou outil sur mesure.",
+    "days": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "start": "09:30",
+    "end": "18:00",
+    "step": 30,
+    "breaks": [
+      [
+        "12:30",
+        "14:00"
+      ]
+    ],
+    "minNoticeHours": 12,
+    "maxDays": 60,
+    "endpoint": "",
+    "projectTypes": [
+      "Site vitrine",
+      "E-commerce Shopify",
+      "Application mobile",
+      "Outil sur mesure",
+      "Brique IA"
+    ],
+    "budgets": [
+      "Moins de 3 000 €",
+      "3 000 – 8 000 €",
+      "8 000 – 20 000 €",
+      "Plus de 20 000 €",
+      "Je ne sais pas encore"
+    ]
   }
 }
