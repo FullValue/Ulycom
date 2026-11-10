@@ -2945,8 +2945,119 @@ function initScriptsAfterEnter() {
     lenis && lenis.resize(),
     ScrollTrigger.refresh());
 }
+/* Header « île » : encoche de Mac sur desktop, Dynamic Island sur mobile.
+   collapseOnScroll : l'encoche se replie quand on descend dans la page (desktop avec souris) ;
+   scrollThreshold : distance de scroll (px) avant le repli ; leaveDelay : délai (ms) avant de se replier quand la souris sort. */
+const SP_ISLAND = { collapseOnScroll: true, scrollThreshold: 80, leaveDelay: 380 };
+function initSpHeader() {
+  const nav = document.querySelector(".sp_nav");
+  if (!nav) return;
+  const burger = nav.querySelector(".sp_burger"),
+    logo = nav.querySelector(".sp_logo"),
+    content = nav.querySelector(".sp_content"),
+    panel = nav.querySelector(".sp_panel"),
+    mobile = window.matchMedia("(max-width: 809px)"),
+    canHover = window.matchMedia("(hover: hover) and (pointer: fine)");
+  let open = false,
+    hovered = false,
+    focused = false,
+    forcedReady = false,
+    leaveTimer = 0,
+    last = "";
+  const ready = () => forcedReady || document.body.classList.contains("body-ready");
+  const scrolled = () => window.scrollY > SP_ISLAND.scrollThreshold;
+  const pickIsland = () => {
+    if (mobile.matches) return open ? "open" : !ready() || scrolled() ? "mini" : "pill";
+    if (hovered || focused) return "full";
+    if (!ready()) return "compact";
+    return SP_ISLAND.collapseOnScroll && canHover.matches && scrolled() ? "compact" : "full";
+  };
+  const openWidth = () => Math.min(document.documentElement.clientWidth - 20, 420);
+  const sizeOf = (island) => {
+    const lw = logo.offsetWidth;
+    if (island === "full") return [content.offsetWidth + 1, 53];
+    if (island === "compact") return [lw + 50, 38];
+    if (island === "pill") return [lw + 62, 44];
+    if (island === "mini") return [86, 44];
+    return [openWidth(), 44 + panel.offsetHeight];
+  };
+  const update = () => {
+    mobile.matches && nav.style.setProperty("--sp-open-w", openWidth() + "px");
+    const island = pickIsland(),
+      [w, h] = sizeOf(island),
+      key = island + ":" + w + "x" + h;
+    if (key === last) return;
+    last = key;
+    nav.setAttribute("data-island", island);
+    nav.style.setProperty("--sp-w", w + "px");
+    nav.style.setProperty("--sp-h", h + "px");
+  };
+  const setOpen = (value) => {
+    if (open === value) return;
+    open = value;
+    nav.setAttribute("data-state", open ? "open" : "closed");
+    burger.setAttribute("aria-expanded", open ? "true" : "false");
+    burger.setAttribute("aria-label", open ? "Fermer le menu" : "Ouvrir le menu");
+    document.body.setAttribute("data-nav-status", open ? "open" : "closed");
+    window.lenis && (open ? window.lenis.stop() : window.lenis.start());
+    update();
+  };
+  window.closeMenu = () => setOpen(false);
+  window.forceCloseMenu = () => setOpen(false);
+  burger.addEventListener("click", () => setOpen(!open));
+  nav.addEventListener("click", (e) => {
+    e.target.closest("a") && setOpen(false);
+  });
+  document.addEventListener("click", (e) => {
+    open && !nav.contains(e.target) && setOpen(false);
+  });
+  document.addEventListener("keydown", (e) => {
+    e.key === "Escape" && setOpen(false);
+  });
+  nav.addEventListener("pointerenter", (e) => {
+    if (e.pointerType !== "mouse") return;
+    clearTimeout(leaveTimer);
+    hovered = true;
+    update();
+  });
+  nav.addEventListener("pointerleave", (e) => {
+    if (e.pointerType !== "mouse") return;
+    clearTimeout(leaveTimer);
+    leaveTimer = setTimeout(() => {
+      hovered = false;
+      update();
+    }, SP_ISLAND.leaveDelay);
+  });
+  nav.addEventListener("focusin", () => {
+    focused = nav.matches(":focus-within") && !!nav.querySelector(":focus-visible");
+    update();
+  });
+  nav.addEventListener("focusout", () => {
+    focused = false;
+    update();
+  });
+  window.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  const onMedia = () => {
+    mobile.matches || setOpen(false);
+    update();
+  };
+  mobile.addEventListener("change", onMedia);
+  canHover.addEventListener("change", onMedia);
+  new MutationObserver(update).observe(document.body, { attributes: true, attributeFilter: ["class"] });
+  if (window.ResizeObserver) {
+    const ro = new ResizeObserver(update);
+    [logo, content, panel].forEach((el) => ro.observe(el));
+  }
+  document.fonts && document.fonts.ready && document.fonts.ready.then(update);
+  setTimeout(() => {
+    forcedReady = true;
+    update();
+  }, 9000);
+  update();
+}
 function initScriptsOnce() {
-  (initPageVisibility(), initDisposables(), initObserverHub(), has(".menu-button") && initMobileMenu());
+  (initPageVisibility(), initDisposables(), initObserverHub(), has(".menu-button") && initMobileMenu(), has(".sp_nav") && initSpHeader());
 }
 const gsap = window.gsap,
   ScrollTrigger = window.ScrollTrigger,

@@ -32,6 +32,7 @@ Génère le site final dans `dist/` (c'est ce dossier qu'on met en ligne). Aucun
 | Les interactions | `public/assets/js/main.js` |
 | Les couleurs (bleu, dégradés des boutons) | bloc « Bleu ULYCOM » de `public/assets/css/ulycom.css` |
 | Le pied de page révélé au scroll | textes : `footer` dans `site.json` ; structure : `src/partials/footer.hbs` ; effet et formes ASCII : `initFooterReveal` dans `main.js` (`FOOTER_REVEAL.parallax` : 1 = immobile, 0.25 = comme good-fella.com) |
+| Le header « île » (encoche Mac sur desktop, Dynamic Island sur mobile) | structure : début de `src/partials/shell.hbs` ; styles : bloc « Header île » de `ulycom.css` (`--sp-spring` = courbe du ressort, `--sp-dur` = durée) ; états : `initSpHeader` dans `main.js` (`SP_ISLAND.collapseOnScroll` : `false` pour que l'encoche reste toujours déployée sur desktop) |
 | La section d'appel à l'action | textes : `cta` dans `site.json` ; structure : `src/partials/cta.hbs` ; animation : `WAVE_GRADIENT` dans `main.js` |
 
 ### Ajouter un vrai projet
