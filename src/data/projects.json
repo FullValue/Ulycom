@@ -200,6 +200,121 @@
     ]
   },
   {
+    "slug": "vanora",
+    "name": "Vanora",
+    "category": "Shopify",
+    "format": "Boutique Shopify sur mesure",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://vanora-parfums.com/",
+    "cover": "/assets/img/captures/vanora-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/vanora-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/vanora-m.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/vanora/screen-1.webp",
+      "/assets/img/projects/vanora/screen-2.webp",
+      "/assets/img/projects/vanora/screen-3.webp"
+    ],
+    "video": {
+      "src": "/assets/img/projects/vanora/demo.mp4",
+      "poster": "/assets/img/projects/vanora/demo-poster.webp",
+      "label": "Navigation sur le site : préloader, nouveautés, univers olfactifs et boutique"
+    },
+    "description": "Vanora est une maison de haute parfumerie qui sélectionne des parfums de niche. Nous avons conçu et optimisé sa boutique Shopify de A à Z, avec des plugins développés sur mesure.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une parfumerie d’exception, avec une boutique physique et un large catalogue de maisons de niche, qui voulait une boutique en ligne à la hauteur de ses créations.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une boutique Shopify conçue et optimisée de A à Z.</p><ul role=\"list\"><li>Préloader et animations sur toute la navigation</li><li>Plugins personnalisés développés pour la boutique</li><li>Nouveautés, maisons d’exception et univers olfactifs mis en avant dès l’accueil</li><li>Page dédiée à la boutique physique</li><li>Optimisation des performances et du référencement</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "idz-fragrances",
+    "name": "IDZ Fragrances",
+    "category": "Shopify",
+    "format": "Boutique Shopify sur mesure",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Shopify",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://fysyjc-3b.myshopify.com/",
+    "cover": "/assets/img/captures/idz-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/idz-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/idz-m.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/idz/screen-1.webp",
+      "/assets/img/projects/idz/screen-2.webp",
+      "/assets/img/projects/idz/screen-3.webp",
+      "/assets/img/projects/idz/screen-4.webp"
+    ],
+    "video": {
+      "src": "/assets/img/projects/idz/demo.mp4",
+      "poster": "/assets/img/projects/idz/demo-poster.webp",
+      "label": "Navigation sur le site : préloader, bestsellers, sélections et boutique"
+    },
+    "description": "IDZ Fragrances est une parfumerie de niche indépendante à Cergy. Nous avons créé sa boutique Shopify : une vitrine immersive pour vendre en ligne et faire venir en boutique.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une parfumerie de niche avec une boutique physique à Cergy, qui voulait présenter sa sélection en ligne et donner envie de venir sentir les parfums sur place.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une boutique Shopify immersive, pensée pour le conseil.</p><ul role=\"list\"><li>Préloader et animations au défilement</li><li>Bestsellers, sélections et familles olfactives</li><li>Parcours « Trouve ton parfum » et boutique privée</li><li>Conseil en direct sur WhatsApp, wishlist et FAQ</li><li>Mise en avant de la boutique physique</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
     "slug": "maison-isis",
     "name": "Maison Isis",
     "category": "Shopify",

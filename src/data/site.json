@@ -49,12 +49,18 @@
     "visit": "Voir le projet en ligne"
   },
   "legal": {
-    "company": "",
-    "status": "",
-    "address": "",
-    "siret": "",
-    "director": "",
-    "host": ""
+    "company": "ULYCORP",
+    "status": "Société par actions simplifiée (SAS)",
+    "address": "25 rue des Pinsons, 95610 Éragny, France",
+    "rcs": "RCS Pontoise 988 931 895",
+    "siret": "988 931 895 00011",
+    "vat": "FR63 988 931 895",
+    "naf": "62.01Z — Programmation informatique",
+    "director": "Yanis El Yassiri, Président",
+    "contact": "contact@ulycorp.com",
+    "host": "Vercel Inc.",
+    "hostAddress": "440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
+    "hostUrl": "https://vercel.com"
   },
   "footer": {
     "lead": "Un projet en tête ? Parlons-en.",

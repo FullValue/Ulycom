@@ -1569,3 +1569,81 @@ body[data-footer-open] .header {
 .bk_fieldset .bk_label {
   margin-bottom: 0.6em;
 }
+
+/* ===== Logos clients : carrousel en défilement continu =====
+   Sens : de gauche à droite (--marquee-from / --marquee-to). Vitesse : --marquee-duration.
+   Le survol met en pause ; les logos sont listés deux fois pour une boucle sans à-coup. */
+.logo_marquee {
+  --marquee-duration: 45s;
+  --marquee-gap: 4em;
+  --marquee-from: -50%;
+  --marquee-to: 0%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.logo_marquee.show_mobile {
+  display: none;
+}
+.logo_marquee__track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee var(--marquee-duration) linear infinite;
+  will-change: transform;
+}
+.logo_marquee:hover .logo_marquee__track {
+  animation-play-state: paused;
+}
+.logo_marquee__set {
+  display: flex;
+  align-items: center;
+  gap: var(--marquee-gap);
+  padding-right: var(--marquee-gap);
+}
+.logo_marquee__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 8.5em;
+  height: 3.25em;
+}
+.logo_marquee__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition:
+    transform 0.4s cubic-bezier(0.3, 1.3, 0.5, 1),
+    opacity 0.3s ease;
+}
+.logo_marquee__item:hover .logo_marquee__img {
+  transform: scale(1.08);
+}
+@keyframes logo-marquee {
+  from {
+    transform: translate3d(var(--marquee-from), 0, 0);
+  }
+  to {
+    transform: translate3d(var(--marquee-to), 0, 0);
+  }
+}
+@media (max-width: 767px) {
+  .logo_marquee {
+    --marquee-gap: 2.5em;
+    --marquee-duration: 35s;
+  }
+  .logo_marquee.show_mobile {
+    display: block;
+  }
+  .logo_marquee__item {
+    width: 6.5em;
+    height: 2.75em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo_marquee__track {
+    animation-duration: 160s;
+  }
+}
