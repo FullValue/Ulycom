@@ -16,6 +16,23 @@ const read = (p) => fs.readFileSync(path.join(SRC, p), 'utf8');
 const json = (p) => JSON.parse(read(`data/${p}.json`));
 const exists = (p) => fs.existsSync(path.join(PUB, p));
 
+// Aperçu du site dans la page projet : « live » (iframe du vrai site) ou captures complètes
+// (public/assets/img/projects/<slug>/preview/manifest.json, générées hors build).
+function previewOf(p) {
+  if (!p.url) return {};
+  const manifest = path.join(PUB, 'assets/img/projects', p.slug, 'preview/manifest.json');
+  const shots = fs.existsSync(manifest) ? JSON.parse(fs.readFileSync(manifest, 'utf8')) : null;
+  const live = p.preview === 'live';
+  if (!live && !shots) return {};
+  return {
+    hasPreview: true,
+    previewLive: live,
+    previewDesktop: shots ? shots.desktop : [],
+    previewMobile: shots ? shots.mobile : [],
+    cleanUrl: p.url.replace(/^https?:\/\//, '').replace(/\/$/, ''),
+  };
+}
+
 function write(rel, content) {
   const file = path.join(DIST, rel);
   fs.mkdirSync(path.dirname(file), { recursive: true });
@@ -70,6 +87,7 @@ function loadData() {
       dateLabel: p.period || (p.date ? monthLabel(p.date) : ''),
       media,
       hasMobile: media.length > 1,
+      ...previewOf(p),
       gallery: p.gallery || (p.cover ? [] : [1, 2].map((n) => gen(`${p.slug}-page-${n}`, ph.page(p.name, accent, n)))),
       team: (p.team || []).map((m) => ({ ...m, avatar: m.avatar || gen(`team-${ph.slug(m.name)}`, ph.avatar(m.name, 24)) })),
     };

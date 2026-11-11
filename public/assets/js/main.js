@@ -2931,7 +2931,8 @@ function initScriptsBeforeEnter() {
     has('[data-offer="card"]') && initPricingToggle(),
     has(".btn_border") && initButtonBorders(),
     has("#my-cal-inline") && initCalEmbed(),
-    has("[data-booking]") && initBooking());
+    has("[data-booking]") && initBooking(),
+    has("[data-live-preview]") && initLivePreview());
 }
 /* Réservation : calendrier, créneaux, formulaire et confirmation (page /rendez-vous).
    Réglages dans site.json → booking (jours, horaires, pauses, préavis, endpoint).
@@ -3390,6 +3391,89 @@ function initBooking(scope = document) {
   renderMonth(0);
   renderSlots();
   goStep("date", false);
+}
+/* Aperçu du site dans la page projet : onglets Desktop / Mobile, iframe mise à l'échelle
+   (mode « live ») ou capture complète défilable (mode « shots »). */
+function initLivePreview(scope = document) {
+  scope.querySelectorAll("[data-live-preview]").forEach((root) => {
+    if (root.__lp) return;
+    root.__lp = true;
+    const tabs = Array.from(root.querySelectorAll("[data-lp-tab]")),
+      panes = Array.from(root.querySelectorAll("[data-lp-pane]")),
+      bg = root.querySelector(".lp_tabs_bg");
+    const placeBg = () => {
+      const t = tabs.find((b) => b.getAttribute("aria-selected") === "true");
+      if (!t || !bg) return;
+      root.style.setProperty("--lp-tab-w", t.offsetWidth + "px");
+      root.style.setProperty("--lp-tab-x", t.offsetLeft - tabs[0].offsetLeft + "px");
+    };
+    // iframe rendue à sa largeur réelle puis réduite pour tenir dans le cadre
+    const fit = (frame) => {
+      const ifr = frame.querySelector("iframe");
+      if (!ifr) return;
+      const base = +frame.dataset.lpFrame || 1440,
+        w = frame.clientWidth,
+        h = frame.clientHeight,
+        k = w / base;
+      ifr.style.width = base + "px";
+      ifr.style.height = Math.ceil(h / k) + "px";
+      ifr.style.transform = "scale(" + k + ")";
+    };
+    const load = (pane) => {
+      pane.querySelectorAll("[data-lp-frame]").forEach((frame) => {
+        fit(frame);
+        const ifr = frame.querySelector("iframe");
+        if (ifr && !ifr.src) {
+          ifr.addEventListener("load", () => frame.classList.add("is-loaded"), { once: true });
+          ifr.src = ifr.dataset.src;
+        }
+      });
+    };
+    const show = (device) => {
+      root.dataset.device = device;
+      tabs.forEach((b) => b.setAttribute("aria-selected", b.dataset.lpTab === device ? "true" : "false"));
+      panes.forEach((p) => (p.hidden = p.dataset.lpPane !== device));
+      placeBg();
+      const pane = panes.find((p) => p.dataset.lpPane === device);
+      pane && visible && load(pane);
+    };
+    tabs.forEach((b) => b.addEventListener("click", () => show(b.dataset.lpTab)));
+    root.addEventListener("keydown", (e) => {
+      if (!e.target.closest("[data-lp-tab]") || (e.key !== "ArrowLeft" && e.key !== "ArrowRight")) return;
+      const i = tabs.indexOf(e.target.closest("[data-lp-tab]")),
+        n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+      n.focus();
+      show(n.dataset.lpTab);
+    });
+    // le premier défilement masque l'indication
+    const touched = () => root.classList.add("is-touched");
+    root.querySelectorAll(".lp_scroll").forEach((s) => s.addEventListener("scroll", touched, { once: true, passive: true }));
+    root.querySelectorAll("[data-lp-frame]").forEach((f) => f.addEventListener("pointerdown", touched, { once: true }));
+    // ne charger le vrai site qu'une fois l'aperçu à l'écran
+    let visible = false;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        visible = true;
+        io.disconnect();
+        show(root.dataset.device);
+      },
+      { rootMargin: "200px" },
+    );
+    io.observe(root);
+    const ro = new ResizeObserver(() => {
+      root.querySelectorAll("[data-lp-frame]").forEach(fit);
+      placeBg();
+    });
+    ro.observe(root);
+    window.addDisposable &&
+      window.addDisposable(() => {
+        io.disconnect();
+        ro.disconnect();
+      });
+    // sur téléphone, on commence par la vue mobile
+    show(window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop");
+  });
 }
 function initScriptsAfterEnter() {
   (has('[data-dropdown="item"]') && initFaq(),

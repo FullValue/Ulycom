@@ -53,7 +53,8 @@
         "name": "Yanis El Yassiri",
         "role": "CTO & développement IA."
       }
-    ]
+    ],
+    "preview": "live"
   },
   {
     "slug": "leadem",
@@ -149,7 +150,8 @@
         "name": "ULYCOM",
         "role": "Design & développement."
       }
-    ]
+    ],
+    "preview": "live"
   },
   {
     "slug": "maison-maya",
@@ -560,7 +562,8 @@
         "name": "ULYCOM",
         "role": "Design & développement."
       }
-    ]
+    ],
+    "preview": "live"
   },
   {
     "slug": "cockpit",
