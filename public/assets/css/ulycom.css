@@ -2259,3 +2259,47 @@ body[data-footer-open] .header {
   inset: 0;
   background: radial-gradient(circle at 50% 40%, rgba(1, 113, 227, 0.28), rgba(11, 13, 18, 0.82) 70%);
 }
+
+/* ===== Logo ULYCOM (repris d'Ulyhost) =====
+   Bleu dégradé partout (partial ulylogo), blanc sur la Dynamic Island (ulylogo-white). */
+.uly_logo {
+  display: block;
+  height: 100%;
+  width: auto;
+  overflow: visible;
+}
+.sp_logo_icon.is-bare {
+  width: auto;
+  height: 26px;
+  padding: 2px 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.bk_host_icon.is-bare {
+  width: auto;
+  height: 1.6em;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+.heading_logo.is-bare {
+  width: auto;
+  height: 0.85em;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+}
+.mask_logo__dot.uly_preload {
+  display: block;
+  height: 100%;
+  width: auto;
+  max-height: 100%;
+  margin: 0 auto;
+}
+.preload_logo .mask_logo {
+  display: flex;
+  justify-content: center;
+  aspect-ratio: 1;
+}

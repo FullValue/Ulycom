@@ -70,6 +70,11 @@
     "project": "kovering-agency"
   },
   {
+    "name": "TLK Academy",
+    "logo": "/assets/img/clients/tlk-academy.webp",
+    "project": "tlk-academy"
+  },
+  {
     "name": "Amelia BTP",
     "logo": "/assets/img/clients/amelia-btp.webp"
   },
@@ -96,5 +101,9 @@
   {
     "name": "TheKovering",
     "logo": "/assets/img/clients/thekovering.webp"
+  },
+  {
+    "name": "Order Up",
+    "logo": "/assets/img/clients/order-up.webp"
   }
 ]

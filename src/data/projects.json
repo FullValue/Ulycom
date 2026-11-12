@@ -711,6 +711,65 @@
     ]
   },
   {
+    "slug": "tlk-academy",
+    "name": "TLK Academy",
+    "category": "Design",
+    "format": "Identité & maillots 3D",
+    "tags": [
+      {
+        "label": "Modélisation 3D",
+        "icon": "window"
+      },
+      {
+        "label": "Identité visuelle",
+        "icon": "building"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/projects/tlk-academy/cover.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/tlk-academy/cover.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/projects/tlk-academy/cover-m.webp"
+      }
+    ],
+    "gallery": [
+      "/assets/img/projects/tlk-academy/maillot-1.webp",
+      "/assets/img/projects/tlk-academy/maillot-2.webp",
+      "/assets/img/projects/tlk-academy/maillot-3.webp",
+      "/assets/img/projects/tlk-academy/maillot-4.webp",
+      "/assets/img/projects/tlk-academy/logos.webp"
+    ],
+    "video": {
+      "src": "/assets/img/projects/tlk-academy/maillots.mp4",
+      "poster": "/assets/img/projects/tlk-academy/maillots-poster.webp",
+      "label": "Modélisation 3D des maillots : trois coloris, vus sous tous les angles"
+    },
+    "description": "TLK Coaching est une académie de football. Nous avons travaillé son identité et modélisé en 3D ses maillots, pour valider chaque coloris avant la production.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une académie de football qui voulait des maillots à son image et pouvoir les montrer avant de lancer la fabrication.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<ul role=\"list\"><li>Logo de l’académie, en version noir et blanc et en version or</li><li>Maillots modélisés en 3D, vus sous tous les angles</li><li>Trois coloris : noir et or, blanc, jaune fluo</li><li>Placement des logos, du sponsor, du nom et du numéro</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & modélisation 3D."
+      }
+    ]
+  },
+  {
     "slug": "childs-kitchen",
     "name": "Child’s Kitchen",
     "category": "Sur mesure",
