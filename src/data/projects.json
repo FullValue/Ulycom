@@ -611,7 +611,7 @@
     "slug": "cockpit",
     "name": "Le Cockpit",
     "category": "Sur mesure",
-    "format": "Outil interne de pilotage, augmenté par l’IA",
+    "format": "Projet client confidentiel, augmenté par l’IA",
     "tags": [
       {
         "label": "Web app",
@@ -622,7 +622,7 @@
         "icon": "ai"
       },
       {
-        "label": "Outil interne",
+        "label": "Projet confidentiel",
         "icon": "tool"
       }
     ],
@@ -641,11 +641,11 @@
       }
     ],
     "gallery": [],
-    "description": "Le Cockpit est l’outil de pilotage interne de l’agence : projets, tâches, demandes clients, conversations WhatsApp, studio créatif et sourcing, avec des assistants IA branchés directement dessus.",
+    "description": "Le Cockpit est un projet client confidentiel : un outil de pilotage sur mesure qui réunit projets, tâches, demandes, conversations WhatsApp, studio créatif et sourcing, avec des assistants IA branchés directement dessus.",
     "sections": [
       {
         "title": "Contexte",
-        "html": "<p>Piloter une activité répartie sur plusieurs pôles demandait de jongler entre une dizaine d’outils. L’objectif : un seul espace, en accès réservé, où l’IA peut aussi lire et agir.</p>"
+        "html": "<p>Notre client pilotait une activité répartie sur plusieurs pôles en jonglant entre une dizaine d’outils. L’objectif : lui offrir un seul espace, en accès réservé, où l’IA peut aussi lire et agir.</p>"
       },
       {
         "title": "Intégrations IA",
@@ -653,7 +653,7 @@
       },
       {
         "title": "Confidentialité",
-        "html": "<p>Outil confidentiel, utilisé en interne : aucune capture n’est publiée. Une démonstration est possible sur rendez-vous.</p>"
+        "html": "<p>Projet client confidentiel : aucune capture n’est publiée. Une démonstration est possible sur rendez-vous.</p>"
       }
     ],
     "team": [
