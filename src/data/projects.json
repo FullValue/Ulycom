@@ -235,11 +235,6 @@
       "/assets/img/projects/vanora/screen-2.webp",
       "/assets/img/projects/vanora/screen-3.webp"
     ],
-    "video": {
-      "src": "/assets/img/projects/vanora/demo.mp4",
-      "poster": "/assets/img/projects/vanora/demo-poster.webp",
-      "label": "Navigation sur le site : préloader, nouveautés, univers olfactifs et boutique"
-    },
     "description": "Vanora est une maison de haute parfumerie qui sélectionne des parfums de niche. Nous avons conçu et optimisé sa boutique Shopify de A à Z, avec des plugins développés sur mesure.",
     "sections": [
       {
@@ -293,11 +288,6 @@
       "/assets/img/projects/idz/screen-3.webp",
       "/assets/img/projects/idz/screen-4.webp"
     ],
-    "video": {
-      "src": "/assets/img/projects/idz/demo.mp4",
-      "poster": "/assets/img/projects/idz/demo-poster.webp",
-      "label": "Navigation sur le site : préloader, bestsellers, sélections et boutique"
-    },
     "description": "IDZ Fragrances est une parfumerie de niche indépendante à Cergy. Nous avons créé sa boutique Shopify : une vitrine immersive pour vendre en ligne et faire venir en boutique.",
     "sections": [
       {
@@ -469,6 +459,55 @@
     ]
   },
   {
+    "slug": "aasp",
+    "name": "AASP",
+    "category": "Site vitrine",
+    "format": "Site vitrine multi-pages",
+    "tags": [
+      {
+        "label": "Multi-pages",
+        "icon": "multipage"
+      },
+      {
+        "label": "Site vitrine",
+        "icon": "globe"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "https://aasparis.fr/",
+    "preview": "live",
+    "cover": "/assets/img/captures/aasp-d.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/captures/aasp-d.webp"
+      },
+      {
+        "device": "mobile",
+        "image": "/assets/img/captures/aasp-m.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "AASP (All Airport Services Plus) accompagne passagers et compagnies aériennes à l’aéroport depuis 2007. Nous avons réalisé son site vitrine : services, offre VIP, FAQ et prise de contact.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Une société d’assistance aéroportuaire qui voulait présenter ses services aux passagers comme aux compagnies aériennes, et inspirer confiance dès la première visite.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un site vitrine clair et premium.</p><ul role=\"list\"><li>Pages dédiées à l’offre Plus et à l’offre VIP</li><li>Sections pour les compagnies aériennes et pour les passagers</li><li>Galerie, FAQ détaillée et formulaire de contact</li><li>Gestion du consentement aux cookies</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
     "slug": "nefsy",
     "name": "Nefsy",
     "category": "Application",
@@ -487,11 +526,11 @@
     "showcase": true,
     "period": "fin 2025 – début 2026",
     "url": "https://www.nefsy.fr/",
-    "cover": "/assets/img/projects/nefsy/cover.webp",
+    "cover": "/assets/img/projects/nefsy/cover-transparent.webp",
     "media": [
       {
         "device": "desktop",
-        "image": "/assets/img/projects/nefsy/cover.webp"
+        "image": "/assets/img/projects/nefsy/cover-transparent.webp"
       }
     ],
     "gallery": [
@@ -514,7 +553,8 @@
         "name": "Yanis El Yassiri",
         "role": "Développement."
       }
-    ]
+    ],
+    "transparent": true
   },
   {
     "slug": "partenaires-multiservices",
@@ -569,11 +609,15 @@
     "slug": "cockpit",
     "name": "Le Cockpit",
     "category": "Sur mesure",
-    "format": "Outil de gestion interne",
+    "format": "Outil interne de pilotage, augmenté par l’IA",
     "tags": [
       {
         "label": "Web app",
         "icon": "window"
+      },
+      {
+        "label": "IA intégrée",
+        "icon": "ai"
       },
       {
         "label": "Outil interne",
@@ -595,15 +639,19 @@
       }
     ],
     "gallery": [],
-    "description": "Le Cockpit est un outil de gestion interne en accès privé : un espace de pilotage qui fonctionne en local ou synchronisé entre appareils.",
+    "description": "Le Cockpit est l’outil de pilotage interne de l’agence : projets, tâches, demandes clients, conversations WhatsApp, studio créatif et sourcing, avec des assistants IA branchés directement dessus.",
     "sections": [
       {
         "title": "Contexte",
-        "html": "<p>Centraliser en un seul endroit le suivi de l’activité, avec un accès réservé.</p>"
+        "html": "<p>Piloter une activité répartie sur plusieurs pôles demandait de jongler entre une dizaine d’outils. L’objectif : un seul espace, en accès réservé, où l’IA peut aussi lire et agir.</p>"
       },
       {
-        "title": "Solution",
-        "html": "<p>Un outil sur mesure, en accès privé.</p><ul role=\"list\"><li>Accès protégé par code</li><li>Données conservées en local, synchronisation entre appareils sur demande</li></ul>"
+        "title": "Intégrations IA",
+        "html": "<ul role=\"list\"><li><strong>Connecteur MCP</strong> : les assistants IA lisent et mettent à jour projets, tâches et demandes directement depuis une conversation</li><li><strong>Studio créatif</strong> : veille des publicités concurrentes, analyse des créas par l’IA (accroche, angle, format) et comparaison des analyses de plusieurs modèles</li><li><strong>WhatsApp</strong> : lecture des conversations et réponses préparées par l’IA</li><li><strong>Sourcing e-commerce</strong> : repérage des tendances et notation des fiches produits</li><li><strong>Production</strong> : suivi des montages vidéo et banque d’assets</li><li><strong>Pilotage</strong> : tableau de bord, prestataires, pôles et journal d’activité</li></ul>"
+      },
+      {
+        "title": "Confidentialité",
+        "html": "<p>Outil confidentiel, utilisé en interne : aucune capture n’est publiée. Une démonstration est possible sur rendez-vous.</p>"
       }
     ],
     "team": [
@@ -611,7 +659,8 @@
         "name": "ULYCOM",
         "role": "Design & développement."
       }
-    ]
+    ],
+    "confidential": true
   },
   {
     "slug": "mercura",

@@ -16,19 +16,26 @@ const read = (p) => fs.readFileSync(path.join(SRC, p), 'utf8');
 const json = (p) => JSON.parse(read(`data/${p}.json`));
 const exists = (p) => fs.existsSync(path.join(PUB, p));
 
-// Aperçu du site dans la page projet : « live » (iframe du vrai site) ou captures complètes
-// (public/assets/img/projects/<slug>/preview/manifest.json, générées hors build).
+// Aperçu du site dans la page projet :
+//  - « live » : le vrai site dans une iframe (sites qui autorisent l'intégration) ;
+//  - « video » : vidéo de navigation (sites qui l'interdisent, ex. Shopify), dans
+//    public/assets/img/projects/<slug>/preview/{desktop,mobile}.mp4 (+ .webp pour l'affiche).
+// Onglet ouvert par défaut : mobile pour les applications (ou previewDefault dans projects.json).
 function previewOf(p) {
-  if (!p.url) return {};
-  const manifest = path.join(PUB, 'assets/img/projects', p.slug, 'preview/manifest.json');
-  const shots = fs.existsSync(manifest) ? JSON.parse(fs.readFileSync(manifest, 'utf8')) : null;
+  if (!p.url || p.confidential) return {};
+  const base = `assets/img/projects/${p.slug}/preview`;
+  const has = (f) => exists(`${base}/${f}`);
   const live = p.preview === 'live';
-  if (!live && !shots) return {};
+  const video = !live && has('desktop.mp4');
+  if (!live && !video) return {};
+  const pick = (name) => (has(`${name}.mp4`) ? { src: `/${base}/${name}.mp4`, poster: has(`${name}.webp`) ? `/${base}/${name}.webp` : '' } : null);
   return {
     hasPreview: true,
     previewLive: live,
-    previewDesktop: shots ? shots.desktop : [],
-    previewMobile: shots ? shots.mobile : [],
+    previewVideo: video,
+    previewDesktopVideo: video ? pick('desktop') : null,
+    previewMobileVideo: video ? pick('mobile') : null,
+    previewDefault: p.previewDefault || (p.category === 'Application' ? 'mobile' : 'desktop'),
     cleanUrl: p.url.replace(/^https?:\/\//, '').replace(/\/$/, ''),
   };
 }

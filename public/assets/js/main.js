@@ -3429,6 +3429,18 @@ function initLivePreview(scope = document) {
         }
       });
     };
+    // mode « video » : seule la vidéo de l'onglet affiché joue, et seulement quand l'aperçu est à l'écran
+    const syncVideos = () => {
+      panes.forEach((p) =>
+        p.querySelectorAll("video").forEach((v) => {
+          if (!p.hidden && visible) {
+            if (!v.src && v.dataset.src) v.src = v.dataset.src;
+            const r = v.play();
+            r && r.catch && r.catch(() => {});
+          } else if (v.src) v.pause();
+        }),
+      );
+    };
     const show = (device) => {
       root.dataset.device = device;
       tabs.forEach((b) => b.setAttribute("aria-selected", b.dataset.lpTab === device ? "true" : "false"));
@@ -3436,6 +3448,7 @@ function initLivePreview(scope = document) {
       placeBg();
       const pane = panes.find((p) => p.dataset.lpPane === device);
       pane && visible && load(pane);
+      syncVideos();
     };
     tabs.forEach((b) => b.addEventListener("click", () => show(b.dataset.lpTab)));
     root.addEventListener("keydown", (e) => {
@@ -3453,12 +3466,11 @@ function initLivePreview(scope = document) {
     let visible = false;
     const io = new IntersectionObserver(
       (entries) => {
-        if (!entries.some((e) => e.isIntersecting)) return;
-        visible = true;
-        io.disconnect();
-        show(root.dataset.device);
+        visible = entries.some((e) => e.isIntersecting);
+        if (visible) show(root.dataset.device);
+        else syncVideos();
       },
-      { rootMargin: "200px" },
+      { rootMargin: "120px" },
     );
     io.observe(root);
     const ro = new ResizeObserver(() => {
@@ -3471,8 +3483,8 @@ function initLivePreview(scope = document) {
         io.disconnect();
         ro.disconnect();
       });
-    // sur téléphone, on commence par la vue mobile
-    show(window.matchMedia("(max-width: 767px)").matches ? "mobile" : "desktop");
+    // onglet de départ : celui du projet (mobile pour les applications), mobile sur téléphone
+    show(window.matchMedia("(max-width: 767px)").matches ? "mobile" : root.dataset.default || "desktop");
   });
 }
 function initScriptsAfterEnter() {

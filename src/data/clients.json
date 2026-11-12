@@ -1,27 +1,77 @@
 [
   {
     "name": "Vanora",
-    "logo": "/assets/img/clients/vanora.webp"
+    "logo": "/assets/img/clients/vanora.webp",
+    "project": "vanora"
   },
   {
     "name": "IDZ Fragrances",
-    "logo": "/assets/img/clients/idz-fragrances.webp"
+    "logo": "/assets/img/clients/idz-fragrances.webp",
+    "project": "idz-fragrances"
+  },
+  {
+    "name": "Yoovi",
+    "logo": "/assets/img/projects/yoovi/logo.svg",
+    "project": "yoovi"
+  },
+  {
+    "name": "Gallery",
+    "logo": "/assets/img/clients/gallery.webp",
+    "project": "gallery"
+  },
+  {
+    "name": "Maison Maya",
+    "logo": "/assets/img/clients/maison-maya.webp",
+    "project": "maison-maya"
+  },
+  {
+    "name": "Maison Isis",
+    "logo": "/assets/img/clients/maison-isis.webp",
+    "project": "maison-isis"
+  },
+  {
+    "name": "Mickaël Lima",
+    "logo": "/assets/img/clients/mickael-lima.webp",
+    "project": "mickael-lima"
+  },
+  {
+    "name": "Nefsy",
+    "logo": "/assets/img/clients/nefsy.webp",
+    "project": "nefsy"
+  },
+  {
+    "name": "Les Partenaires DM",
+    "logo": "/assets/img/clients/partenaires-dm.webp",
+    "project": "partenaires-multiservices"
   },
   {
     "name": "AASP",
-    "logo": "/assets/img/clients/aasp.webp"
+    "logo": "/assets/img/clients/aasp.webp",
+    "project": "aasp"
+  },
+  {
+    "name": "Awa Plaisir",
+    "logo": "/assets/img/clients/awa-plaisir.webp",
+    "project": "awa-plaisir"
+  },
+  {
+    "name": "Chicken Maestro",
+    "logo": "/assets/img/clients/chicken-maestro.webp",
+    "project": "chicken-maestro"
+  },
+  {
+    "name": "Jedee’s",
+    "logo": "/assets/img/clients/jedees.webp",
+    "project": "jedeeshop"
+  },
+  {
+    "name": "Kovering Agency",
+    "logo": "/assets/img/clients/kovering-agency.webp",
+    "project": "kovering-agency"
   },
   {
     "name": "Amelia BTP",
     "logo": "/assets/img/clients/amelia-btp.webp"
-  },
-  {
-    "name": "Awa Plaisir",
-    "logo": "/assets/img/clients/awa-plaisir.webp"
-  },
-  {
-    "name": "Chicken Maestro",
-    "logo": "/assets/img/clients/chicken-maestro.webp"
   },
   {
     "name": "Croix-Rouge française",
@@ -32,16 +82,8 @@
     "logo": "/assets/img/clients/fc-familya.webp"
   },
   {
-    "name": "Jedee’s",
-    "logo": "/assets/img/clients/jedees.webp"
-  },
-  {
     "name": "Kokeo ONG",
     "logo": "/assets/img/clients/kokeo-ong.webp"
-  },
-  {
-    "name": "Kovering Agency",
-    "logo": "/assets/img/clients/kovering-agency.webp"
   },
   {
     "name": "Nescookies",
@@ -54,9 +96,5 @@
   {
     "name": "TheKovering",
     "logo": "/assets/img/clients/thekovering.webp"
-  },
-  {
-    "name": "TikTok Pro",
-    "logo": "/assets/img/clients/tiktok-pro.webp"
   }
 ]
