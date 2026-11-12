@@ -456,7 +456,8 @@
         "name": "ULYCOM",
         "role": "Design & développement."
       }
-    ]
+    ],
+    "preview": "live"
   },
   {
     "slug": "aasp",
@@ -554,7 +555,8 @@
         "role": "Développement."
       }
     ],
-    "transparent": true
+    "transparent": true,
+    "preview": "live"
   },
   {
     "slug": "partenaires-multiservices",
