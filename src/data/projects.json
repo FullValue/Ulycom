@@ -665,6 +665,60 @@
     "confidential": true
   },
   {
+    "slug": "kokeo",
+    "name": "KOKEO",
+    "category": "Design",
+    "format": "Éléments de présentation internes, projet client confidentiel",
+    "tags": [
+      {
+        "label": "Supports de présentation",
+        "icon": "multipage"
+      },
+      {
+        "label": "Usage interne",
+        "icon": "building"
+      },
+      {
+        "label": "Projet confidentiel",
+        "icon": "tool"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "url": "",
+    "logo": "/assets/img/clients/kokeo-ong.webp",
+    "cover": "/assets/img/clients/kokeo-ong.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/clients/kokeo-ong.webp"
+      }
+    ],
+    "gallery": [],
+    "description": "KOKEO est un réseau international de la société civile qui porte un programme commun de développement durable dans 40 pays. Pour ce projet client confidentiel, nous concevons des éléments de présentation à usage interne.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>KOKEO et sa société économique UNITED-CONNEXION accompagnent entreprises, diasporas et territoires vers des projets ESG, avec 40 équipes locales de coordination sur 4 continents. Leurs équipes avaient besoin de supports clairs et cohérents pour présenter leurs travaux en interne.</p>"
+      },
+      {
+        "title": "Notre intervention",
+        "html": "<ul role=\"list\"><li><strong>Supports de présentation</strong> : conception d’éléments de présentation destinés aux équipes</li><li><strong>Mise en forme</strong> : des contenus structurés et lisibles, fidèles à l’identité de KOKEO</li><li><strong>Usage interne</strong> : des supports pensés pour les réunions et les échanges entre équipes</li></ul>"
+      },
+      {
+        "title": "Confidentialité",
+        "html": "<p>Projet client confidentiel : les supports sont réservés à un usage interne et aucun visuel n’est publié. Une présentation est possible sur rendez-vous.</p>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design."
+      }
+    ],
+    "confidential": true
+  },
+  {
     "slug": "mercura",
     "name": "Mercura",
     "category": "Sur mesure",

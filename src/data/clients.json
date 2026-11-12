@@ -88,7 +88,8 @@
   },
   {
     "name": "Kokeo ONG",
-    "logo": "/assets/img/clients/kokeo-ong.webp"
+    "logo": "/assets/img/clients/kokeo-ong.webp",
+    "project": "kokeo"
   },
   {
     "name": "Nescookies",
