@@ -2836,6 +2836,11 @@ function initFooterReveal(scope = document) {
     f.resize();
     return f;
   });
+  // pied de page clair (section bleue juste au-dessus) : ASCII en bleu, même règle que dans ulycom.css
+  let light = false;
+  try {
+    light = footer.matches("section:has(.cta_flux) + .footer_flux");
+  } catch (e) {}
   const drawField = (f, t) => {
     const { ctx, canvas, cols, rows, cw, ch, seeds, side, dpr } = f;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -2863,7 +2868,9 @@ function initFooterReveal(scope = document) {
         const flicker = 0.55 + 0.45 * Math.sin(t * 2.2 + s * 40);
         const alpha = Math.min(1, (0.45 + dens * 0.55) * flicker + near);
         const glyph = ASCII_CHARS[(Math.floor(s * 997) + (s > 0.82 ? tick : 0) + (near > 0.2 ? tick : 0)) % ASCII_CHARS.length];
-        ctx.fillStyle = near > 0.15 ? `rgba(255,255,255,${alpha})` : `rgba(214,236,255,${alpha})`;
+        ctx.fillStyle = light
+          ? near > 0.15 ? `rgba(1,113,227,${alpha})` : `rgba(1,113,227,${alpha * 0.45})`
+          : near > 0.15 ? `rgba(255,255,255,${alpha})` : `rgba(214,236,255,${alpha})`;
         ctx.fillText(glyph, x, y);
       }
     }
@@ -3528,6 +3535,7 @@ function initSpHeader() {
     return SP_ISLAND.collapseOnScroll && canHover.matches && scrolled() ? "compact" : "full";
   };
   const openWidth = () => Math.min(document.documentElement.clientWidth - 20, 420);
+  // version rétractée (compact, pill) : même largeur qu'avec le nom, mais seule l'icône reste visible (nom masqué en CSS)
   const sizeOf = (island) => {
     const lw = logo.offsetWidth;
     if (island === "full") return [content.offsetWidth + 1, 53];

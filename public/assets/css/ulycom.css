@@ -433,6 +433,33 @@
     opacity: 0.35;
   }
 }
+/* Pied de page clair : quand la section juste au-dessus est bleue (appel à l'action),
+   les couleurs s'inversent (fond blanc, textes et motifs bleus). main.js lit la même règle pour l'ASCII. */
+section:has(.cta_flux) + .footer_flux {
+  --ff-muted: color-mix(in srgb, var(--brand--blue) 72%, transparent);
+  --ff-faint: color-mix(in srgb, var(--brand--blue) 10%, transparent);
+  background-color: #fff;
+  color: var(--brand--blue);
+}
+section:has(.cta_flux) + .footer_flux .btn_wrap {
+  --btn-text-color: #fff;
+  --btn-bg-color: var(--brand--blue);
+}
+section:has(.cta_flux) + .footer_flux .btn_border__bg {
+  --main-color: #fff;
+  --bg-color: rgba(255, 255, 255, 0.25);
+}
+section:has(.cta_flux) + .footer_flux .footer_flux__pulse {
+  background-color: var(--brand--blue);
+}
+section:has(.cta_flux) + .footer_flux .footer_flux__link:hover,
+section:has(.cta_flux) + .footer_flux .footer_flux__underline:hover,
+section:has(.cta_flux) + .footer_flux .footer_flux__key {
+  color: var(--brand--blue);
+}
+section:has(.cta_flux) + .footer_flux .footer_flux__key kbd {
+  background-color: color-mix(in srgb, var(--brand--blue) 12%, transparent);
+}
 /* La barre de navigation s'efface quand le pied de page occupe l'écran (comme sur la référence) */
 .header {
   transition: translate 0.6s var(--smooth-ease);
@@ -524,6 +551,14 @@ body[data-footer-open] .header {
   font-weight: 600;
   letter-spacing: -0.02em;
   line-height: 1.2;
+  transition:
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+/* île rétractée : l'icône seule */
+.sp_nav[data-island='compact'] .sp_logo_name {
+  opacity: 0;
+  filter: blur(6px);
 }
 .sp_panel {
   display: flex;
@@ -689,7 +724,8 @@ body[data-footer-open] .header {
       opacity 0.3s ease,
       filter 0.3s ease;
   }
-  .sp_nav[data-island='mini'] .sp_logo_name {
+  .sp_nav[data-island='mini'] .sp_logo_name,
+  .sp_nav[data-island='pill'] .sp_logo_name {
     opacity: 0;
     filter: blur(6px);
   }
