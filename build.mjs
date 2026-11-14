@@ -119,6 +119,7 @@ function loadData() {
 
   const reviews = json('reviews').map((r, i) => ({
     ...r,
+    stars: r.stars || 5, // de 1 à 5 : les étoiles en trop sont estompées (classe is-stars-N)
     avatar: r.avatar || gen(`avatar-${i + 1}`, ph.avatar(r.name, 999)),
   }));
   const clients = json('clients').map((c, i) => ({

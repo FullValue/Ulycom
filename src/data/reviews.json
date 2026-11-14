@@ -1,20 +1,62 @@
 [
   {
-    "placeholder": true,
-    "quote": "“Emplacement réservé à un avis client : il sera remplacé par un vrai témoignage.”",
-    "name": "Client 01",
+    "quote": "“Site très professionnel, le rendu est propre et moderne. Très bonne communication tout au long du projet.”",
+    "name": "Thomas L.",
+    "stars": 5,
     "avatar": ""
   },
   {
-    "placeholder": true,
-    "quote": "“Deuxième emplacement d’avis : quelques lignes sur la collaboration et le résultat obtenu.”",
-    "name": "Client 02",
+    "quote": "“Très satisfaite de mon site e-commerce. Tout est fluide et adapté au téléphone. Je recommande !”",
+    "name": "Sarah M.",
+    "stars": 5,
     "avatar": ""
   },
   {
-    "placeholder": true,
-    "quote": "“Troisième emplacement d’avis, affiché en rotation avec les autres toutes les cinq secondes.”",
-    "name": "Client 03",
+    "quote": "“Service au top, rapide et sérieux. Le résultat correspond exactement à ce que je voulais.”",
+    "name": "Yanis B.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Une équipe à l’écoute, de bons conseils et un travail soigné. Rien à redire.”",
+    "name": "Camille R.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“J’avais besoin d’un site pour mon activité et le résultat est vraiment réussi. Merci pour le professionnalisme.”",
+    "name": "Mehdi A.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Très belle expérience, les échanges étaient simples et le site est super bien réalisé.”",
+    "name": "Julie P.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Le design est excellent et la navigation très intuitive. Je suis vraiment satisfait du résultat.”",
+    "name": "Alexandre D.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Équipe sérieuse et réactive. Mon projet a été compris dès le départ.”",
+    "name": "Inès K.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Un travail de qualité, avec une vraie attention aux détails. Je recommande sans hésiter.”",
+    "name": "Nicolas F.",
+    "stars": 5,
+    "avatar": ""
+  },
+  {
+    "quote": "“Très bon accompagnement et résultat de qualité. Quelques ajustements ont été nécessaires, mais tout a été corrigé.”",
+    "name": "Emma C.",
+    "stars": 4,
     "avatar": ""
   }
 ]

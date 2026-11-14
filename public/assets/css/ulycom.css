@@ -2355,3 +2355,12 @@ body[data-footer-open] .header {
   object-fit: cover;
   object-position: top center;
 }
+
+/* Avis : étoiles non attribuées (champ stars de reviews.json) */
+.hero_review__item.is-stars-4 .hero_review__star:nth-child(n + 5) img,
+.hero_review__item.is-stars-3 .hero_review__star:nth-child(n + 4) img,
+.hero_review__item.is-stars-2 .hero_review__star:nth-child(n + 3) img,
+.hero_review__item.is-stars-1 .hero_review__star:nth-child(n + 2) img {
+  opacity: 0.25;
+  filter: grayscale(1);
+}
