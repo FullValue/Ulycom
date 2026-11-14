@@ -22,9 +22,23 @@ const exists = (p) => fs.existsSync(path.join(PUB, p));
 //    public/assets/img/projects/<slug>/preview/{desktop,mobile}.mp4 (+ .webp pour l'affiche).
 // Onglet ouvert par défaut : mobile pour les applications (ou previewDefault dans projects.json).
 function previewOf(p) {
-  if (!p.url || p.confidential) return {};
+  if (p.confidential) return {};
   const base = `assets/img/projects/${p.slug}/preview`;
   const has = (f) => exists(`${base}/${f}`);
+  // Application sans site : seule la vidéo mobile, dans le cadre téléphone
+  if (!p.url) {
+    if (!has('mobile.mp4')) return {};
+    return {
+      hasPreview: true,
+      previewApp: true,
+      previewMobileVideo: { src: `/${base}/mobile.mp4`, poster: has('mobile.webp') ? `/${base}/mobile.webp` : '' },
+      previewDefault: 'mobile',
+      previewLabel: p.previewLabel || 'Application mobile iOS & Android',
+      // ratio de la vidéo (« 400 / 720 » par défaut) ; previewIsland: false si la vidéo montre déjà l'encoche
+      previewRatio: p.previewRatio || '400 / 720',
+      previewIsland: p.previewIsland !== false,
+    };
+  }
   const live = p.preview === 'live';
   const video = !live && has('desktop.mp4');
   if (!live && !video) return {};

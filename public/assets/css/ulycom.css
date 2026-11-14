@@ -2335,3 +2335,15 @@ body[data-footer-open] .header {
 .conf.is-mini .conf_title {
   font-size: 1.25em;
 }
+
+/* Aperçu d'une application (vidéo mobile seule, sans site en ligne) */
+.lp.is-app .lp_phone {
+  aspect-ratio: var(--lp-ratio, 400 / 720);
+}
+.lp.is-app .lp_video {
+  cursor: default;
+}
+.lp.is-app .lp_video:hover video {
+  transform: none;
+  filter: none;
+}

@@ -254,6 +254,96 @@
     ]
   },
   {
+    "slug": "vanora-app",
+    "name": "Vanora App",
+    "category": "Application",
+    "format": "Application mobile de fidélité",
+    "tags": [
+      {
+        "label": "iOS & Android",
+        "icon": "app"
+      },
+      {
+        "label": "Conseiller IA",
+        "icon": "ai"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/projects/vanora-app/cover.webp",
+    "coverTall": "/assets/img/projects/vanora-app/cover-tall.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/vanora-app/cover.webp"
+      }
+    ],
+    "description": "L’application mobile de la parfumerie Vanora : achat de parfums, carte de fidélité à tampons, conseiller olfactif IA et réservation des événements VIP de la boutique.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Après sa boutique Shopify, Vanora voulait prolonger l’expérience de sa parfumerie dans la poche de ses clients : les fidéliser, les conseiller comme en boutique et les inviter à ses soirées privées.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une application mobile aux couleurs de la maison.</p><ul role=\"list\"><li>Boutique complète : nouveautés, fiches parfum, panier et suivi de commande</li><li>Carte de fidélité numérique à points et tampons, valable en boutique comme en ligne, avec échantillons offerts</li><li>Conseiller IA qui établit le profil olfactif et recommande des parfums</li><li>Espace VIP : avant-premières et réservation de places aux événements privés de la boutique</li><li>Coffret découverte à composer, favoris, cartes cadeaux et notifications</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
+    "slug": "reddington",
+    "name": "Reddington",
+    "category": "Application",
+    "format": "Application de parfumerie de niche",
+    "tags": [
+      {
+        "label": "iOS & Android",
+        "icon": "app"
+      },
+      {
+        "label": "E-commerce",
+        "icon": "bag"
+      }
+    ],
+    "animated": true,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/projects/reddington/cover.webp",
+    "coverTall": "/assets/img/projects/reddington/cover-tall.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/reddington/cover.webp"
+      }
+    ],
+    "previewRatio": "360 / 780",
+    "previewIsland": false,
+    "description": "L’application mobile de Reddington, parfumerie de niche : drops exclusifs, maisons rares à explorer, fiches parfum immersives et liste de favoris à feuilleter.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Reddington sélectionne des maisons de parfum rares, une à une. La parfumerie voulait une application qui fasse vivre ses drops et son catalogue avec la même audace que sa boutique.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Une application mobile au design éditorial, où chaque maison et chaque parfum a sa propre couleur.</p><ul role=\"list\"><li>Accueil animé : drops datés, sélection à la une, nouveautés et maisons</li><li>Exploration des maisons en cartes empilées, avec index alphabétique</li><li>Fiches parfum immersives aux couleurs du flacon, avec ajout au sac</li><li>Favoris à feuilleter comme une collection</li><li>Écran d’accueil animé, mode clair et sombre</li></ul>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
     "slug": "idz-fragrances",
     "name": "IDZ Fragrances",
     "category": "Shopify",
