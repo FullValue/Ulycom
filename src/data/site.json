@@ -2,7 +2,7 @@
   "name": "ULYCOM",
   "url": "",
   "title": "ULYCOM — Sites internet, applications et outils sur mesure",
-  "description": "ULYCOM conçoit des sites vitrines, des boutiques Shopify, des applications mobiles et des outils sur mesure, avec des briques IA intégrées en partenariat avec Ulycorp.",
+  "description": "ULYCOM conçoit des sites vitrines, des boutiques Shopify, des applications mobiles et des outils sur mesure, avec des agents IA, des automatisations et de l’intégration IA en partenariat avec Ulycorp.",
   "email": "",
   "calLink": "",
   "whatsapp": "+33 6 52 96 73 88",
@@ -21,8 +21,8 @@
   },
   "hero": {
     "title": "Sites et apps sur mesure pour des projets uniques.",
-    "tag": "& briques IA",
-    "text": "Sites vitrines, e-commerce Shopify, applications mobiles et outils métier : nous concevons et développons vos produits digitaux, avec des briques IA intégrées en partenariat avec Ulycorp.",
+    "tag": "& intégration IA",
+    "text": "Sites vitrines, e-commerce Shopify, applications mobiles et outils métier : nous concevons et développons vos produits digitaux, avec des agents IA, des automatisations et de l’intégration IA en partenariat avec Ulycorp.",
     "secondary": "Voir nos réalisations"
   },
   "reviewsLabel": "Avis clients",
@@ -70,7 +70,7 @@
     "text": "Site vitrine, boutique Shopify, application mobile ou outil sur mesure : nous lisons chaque demande.",
     "status": [
       "Ouvert aux nouveaux projets.",
-      "Briques IA en partenariat avec Ulycorp."
+      "Agents IA, automatisations et intégration IA avec Ulycorp."
     ],
     "tagline": "Sites, apps & outils sur mesure.",
     "letters": [
@@ -115,7 +115,7 @@
       "E-commerce Shopify",
       "Application mobile",
       "Outil sur mesure",
-      "Brique IA"
+      "Agent IA ou automatisation"
     ],
     "budgets": [
       "Moins de 3 000 €",
