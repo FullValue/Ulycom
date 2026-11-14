@@ -5,7 +5,7 @@
   "description": "ULYCOM conçoit des sites vitrines, des boutiques Shopify, des applications mobiles et des outils sur mesure, avec des briques IA intégrées en partenariat avec Ulycorp.",
   "email": "",
   "calLink": "",
-  "whatsapp": "",
+  "whatsapp": "+33 6 52 96 73 88",
   "partner": {
     "name": "Ulycorp",
     "url": "https://ulycorp.com",
@@ -33,6 +33,7 @@
     "all": "Voir tous les projets"
   },
   "realisations": {
+    "hiddenFilters": ["Sur mesure"],
     "text": "Plateformes IA, applications mobiles, boutiques en ligne et outils sur mesure : un aperçu de ce que nous concevons.",
     "button": "Voir les projets showcase",
     "showcaseTitle": "Projets",
@@ -51,6 +52,8 @@
   "legal": {
     "company": "ULYCORP",
     "status": "Société par actions simplifiée (SAS)",
+    "capital": "1 000 €",
+    "siren": "988 931 895",
     "address": "25 rue des Pinsons, 95610 Éragny, France",
     "rcs": "RCS Pontoise 988 931 895",
     "siret": "988 931 895 00011",

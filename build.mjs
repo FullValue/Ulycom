@@ -131,7 +131,8 @@ function loadData() {
     offer: json('offer'),
     projects,
     showcase: projects.filter((p) => p.showcase),
-    categories: [...new Set(projects.map((p) => p.category))],
+    // filtres de la page Réalisations ; realisations.hiddenFilters (site.json) masque des boutons, les projets restent dans « Tout »
+    categories: [...new Set(projects.flatMap((p) => [p.category, ...(p.alsoIn || [])]))].filter((c) => !(site.realisations?.hiddenFilters || []).includes(c)),
     reviews,
     clients,
     year: new Date().getFullYear(),

@@ -967,10 +967,7 @@
   {
     "slug": "childs-kitchen",
     "name": "Child’s Kitchen",
-    "category": "Sur mesure",
-    "alsoIn": [
-      "Application"
-    ],
+    "category": "Application",
     "format": "Plateforme de restauration scolaire",
     "tags": [
       {
@@ -986,15 +983,15 @@
     "showcase": true,
     "period": "fin 2025",
     "url": "",
-    "cover": "/assets/img/projects/childs-kitchen/cover.webp",
+    "cover": "/assets/img/projects/childs-kitchen/cover-app.webp",
     "media": [
       {
         "device": "desktop",
-        "image": "/assets/img/projects/childs-kitchen/cover.webp"
+        "image": "/assets/img/projects/childs-kitchen/cover-app.webp"
       }
     ],
     "gallery": [
-      "/assets/img/projects/childs-kitchen/screen-1.webp"
+      "/assets/img/projects/childs-kitchen/screen-app.webp"
     ],
     "description": "Child’s Kitchen relie parents, traiteurs et écoles dans un même système pour gérer les menus des enfants. La plateforme est déployée dans des écoles au Maroc.",
     "sections": [
@@ -1012,7 +1009,8 @@
         "name": "Yanis El Yassiri",
         "role": "Développement."
       }
-    ]
+    ],
+    "coverTall": "/assets/img/projects/childs-kitchen/cover-tall.webp"
   },
   {
     "slug": "jedeeshop",
