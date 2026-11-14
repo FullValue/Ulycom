@@ -1792,7 +1792,7 @@ function initFilter(e = document) {
       function t(t) {
         const a = r.filter((e) => {
           const a = e.getAttribute("data-filter-category");
-          return "All" === t || a === t;
+          return "All" === t || a.split("|").includes(t);
         });
         (a.forEach((e, t) => {
           e.style.setProperty("--index", t);
@@ -1809,13 +1809,13 @@ function initFilter(e = document) {
           (i = setTimeout(() => {
             (r.forEach((e) => {
               const t = e.getAttribute("data-filter-category");
-              "All" === a || t === a || e.setAttribute("data-filter-status", "inactive");
+              "All" === a || t.split("|").includes(a) || e.setAttribute("data-filter-status", "inactive");
             }),
               t(a),
               e.offsetHeight,
               r.forEach((e) => {
                 const t = e.getAttribute("data-filter-category");
-                ("All" === a || t === a) && e.setAttribute("data-filter-status", "active");
+                ("All" === a || t.split("|").includes(a)) && e.setAttribute("data-filter-status", "active");
               }),
               (o = !1),
               lenis && lenis.resize(),

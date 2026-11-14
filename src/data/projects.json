@@ -344,6 +344,55 @@
     ]
   },
   {
+    "slug": "gallery-app",
+    "name": "gallery. La Niche",
+    "category": "Application",
+    "alsoIn": [
+      "IA"
+    ],
+    "format": "SaaS pour parfumeries de niche",
+    "tags": [
+      {
+        "label": "SaaS",
+        "icon": "window"
+      },
+      {
+        "label": "IA",
+        "icon": "ai"
+      }
+    ],
+    "animated": false,
+    "showcase": true,
+    "url": "",
+    "cover": "/assets/img/projects/gallery-app/cover.webp",
+    "coverTall": "/assets/img/projects/gallery-app/cover-tall.webp",
+    "media": [
+      {
+        "device": "desktop",
+        "image": "/assets/img/projects/gallery-app/cover.webp"
+      }
+    ],
+    "previewRatio": "750 / 1624",
+    "previewLabel": "Application des boutiques · accès réservé",
+    "description": "Le logiciel par abonnement derrière gallery. : chaque parfumerie de niche y retrouve les profils olfactifs écrits par l’IA, ses fiches clients et ses envois, depuis une application réservée à la boutique.",
+    "sections": [
+      {
+        "title": "Contexte",
+        "html": "<p>Dans une parfumerie de niche, le client repart souvent anonyme : à sa visite suivante, le vendeur repart de zéro et la newsletter parle à tout le monde, donc à personne.</p>"
+      },
+      {
+        "title": "Solution",
+        "html": "<p>Un SaaS multi-boutiques, avec un accès réservé à chaque maison.</p><ul role=\"list\"><li>Le client scanne la plaquette NFC du comptoir et répond à un questionnaire de trois minutes, sans application à installer</li><li>L’IA écrit son profil olfactif et le confronte au stock réel de la boutique</li><li>Le vendeur ouvre la fiche : la recommandation, ses raisons et les alternatives</li><li>Fiches clients, e-mails écrits par l’IA et campagnes construites sur le stock</li><li>Interface en cinq langues : français, anglais, italien, espagnol et arabe</li><li>Options : marque blanche, agents IA pour les avis Google, le téléphone de nuit et WhatsApp</li></ul><p>Cinq parfumeries indépendantes sont équipées, dont Vanora et Reddington.</p>"
+      }
+    ],
+    "team": [
+      {
+        "name": "ULYCOM",
+        "role": "Design & développement."
+      }
+    ]
+  },
+  {
     "slug": "idz-fragrances",
     "name": "IDZ Fragrances",
     "category": "Shopify",
@@ -617,11 +666,11 @@
     "showcase": true,
     "period": "fin 2025 – début 2026",
     "url": "https://www.nefsy.fr/",
-    "cover": "/assets/img/projects/nefsy/cover-transparent.webp",
+    "cover": "/assets/img/projects/nefsy/cover-app.webp",
     "media": [
       {
         "device": "desktop",
-        "image": "/assets/img/projects/nefsy/cover-transparent.webp"
+        "image": "/assets/img/projects/nefsy/cover-app.webp"
       }
     ],
     "gallery": [
@@ -645,8 +694,8 @@
         "role": "Développement."
       }
     ],
-    "transparent": true,
-    "preview": "live"
+    "preview": "live",
+    "coverTall": "/assets/img/projects/nefsy/cover-tall.webp"
   },
   {
     "slug": "partenaires-multiservices",
@@ -919,6 +968,9 @@
     "slug": "childs-kitchen",
     "name": "Child’s Kitchen",
     "category": "Sur mesure",
+    "alsoIn": [
+      "Application"
+    ],
     "format": "Plateforme de restauration scolaire",
     "tags": [
       {

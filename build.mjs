@@ -25,13 +25,14 @@ function previewOf(p) {
   if (p.confidential) return {};
   const base = `assets/img/projects/${p.slug}/preview`;
   const has = (f) => exists(`${base}/${f}`);
-  // Application sans site : seule la vidéo mobile, dans le cadre téléphone
+  // Application sans site : la vidéo mobile (ou, à défaut, une capture mobile.webp), dans le cadre téléphone
   if (!p.url) {
-    if (!has('mobile.mp4')) return {};
+    if (!has('mobile.mp4') && !has('mobile.webp')) return {};
     return {
       hasPreview: true,
       previewApp: true,
-      previewMobileVideo: { src: `/${base}/mobile.mp4`, poster: has('mobile.webp') ? `/${base}/mobile.webp` : '' },
+      previewMobileVideo: has('mobile.mp4') ? { src: `/${base}/mobile.mp4`, poster: has('mobile.webp') ? `/${base}/mobile.webp` : '' } : null,
+      previewMobileImage: has('mobile.mp4') ? '' : `/${base}/mobile.webp`,
       previewDefault: 'mobile',
       previewLabel: p.previewLabel || 'Application mobile iOS & Android',
       // ratio de la vidéo (« 400 / 720 » par défaut) ; previewIsland: false si la vidéo montre déjà l'encoche
@@ -108,6 +109,8 @@ function loadData() {
       dateLabel: p.period || (p.date ? monthLabel(p.date) : ''),
       media,
       hasMobile: media.length > 1,
+      // alsoIn : autres filtres de la page Réalisations où le projet apparaît (ex. ["Application"])
+      filterCategories: [p.category, ...(p.alsoIn || [])].join('|'),
       ...previewOf(p),
       gallery: p.gallery || (p.cover ? [] : [1, 2].map((n) => gen(`${p.slug}-page-${n}`, ph.page(p.name, accent, n)))),
       team: (p.team || []).map((m) => ({ ...m, avatar: m.avatar || gen(`team-${ph.slug(m.name)}`, ph.avatar(m.name, 24)) })),
