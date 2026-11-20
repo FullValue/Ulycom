@@ -92,6 +92,16 @@
     "project": "kokeo"
   },
   {
+    "name": "AP Construction",
+    "logo": "/assets/img/clients/ap-construction.webp",
+    "project": "ap-construction"
+  },
+  {
+    "name": "Derapest",
+    "logo": "/assets/img/clients/derapest.webp",
+    "project": "derapest"
+  },
+  {
     "name": "Nescookies",
     "logo": "/assets/img/clients/nescookies.webp"
   },
